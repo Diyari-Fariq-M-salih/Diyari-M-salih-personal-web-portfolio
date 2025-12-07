@@ -264,3 +264,91 @@ html {
   font-size: 1.05rem;
   color: #222;
 }
+
+/*
+   ENGINEERING TIMELINE SECTION
+ */
+
+.timeline {
+  margin-top: 3rem;
+  position: relative;
+  padding-left: 3rem;
+  max-width: auto;
+
+  /* subtle engineering blueprint grid */
+  background: linear-gradient(
+      0deg,
+      transparent 24%,
+      rgba(0, 0, 0, 0.04) 25%,
+      rgba(0, 0, 0, 0.04) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(0, 0, 0, 0.04) 75%,
+      rgba(0, 0, 0, 0.04) 76%,
+      transparent 77%
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      rgba(0, 0, 0, 0.04) 25%,
+      rgba(0, 0, 0, 0.04) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(0, 0, 0, 0.04) 75%,
+      rgba(0, 0, 0, 0.04) 76%,
+      transparent 77%
+    );
+  background-size: 20px 20px;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  border: 1px solid #d0d0d0;
+}
+
+/* vertical axis line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 1.5rem;
+  top: 1rem;
+  bottom: 1rem;
+  width: 3px;
+  background: #b7b7b7;
+}
+
+/* timeline item container */
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+/* engineering-style timeline node */
+.timeline-dot {
+  position: absolute;
+  left: -0.2rem;
+  top: 0.3rem;
+  width: 1rem;
+  height: 1rem;
+
+  border-radius: 50%;
+  background: white;
+  border: 3px solid #555;
+  box-shadow: 0 0 0 4px #f8f9fb; /* glow matches sidebar tone */
+}
+
+/* content box */
+.timeline-content {
+  padding-left: 1rem;
+}
+
+.timeline-content h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.timeline-content p {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 0.5rem;
+  line-height: 1.6;
+}
