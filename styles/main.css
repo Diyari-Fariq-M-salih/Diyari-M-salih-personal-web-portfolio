@@ -1,107 +1,197 @@
-/* GENERAL PAGE LAYOUT */
+/*
+   GLOBAL CSS VARIABLES
+ */
+:root {
+  /* LAYOUT */
+  --sidebar-width: 18rem;
+  --sidebar-padding-x: 1.5rem;
+  --sidebar-padding-y: 2rem;
+
+  --content-padding: 2.5rem;
+  --column-gap: 2rem;
+
+  /* CARDS */
+  --card-radius: 1rem;
+  --card-padding: 1.25rem;
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  /* COLORS */
+  --bg-light: #f4f4f4;
+  --bg-sidebar: #f8f9fb;
+  --text-main: #222;
+  --text-muted: #555;
+  --border-color: #e5e5e5;
+}
+
+/* Make layout consistent */
+* {
+  box-sizing: border-box;
+}
+
+/*
+   BASE
+ */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f4f4f4;
-  color: #222;
+  background: var(--bg-light);
+  color: var(--text-main);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .layout {
   display: flex;
-  min-height: 100vh;
 }
 
-/* LEFT SIDEBAR */
+/*
+   FIXED SIDEBAR
+ */
 .sidebar {
-  width: 280px;
-  padding: 40px 30px;
-  background: #f8f9fb;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  padding: var(--sidebar-padding-y) var(--sidebar-padding-x);
+  background: var(--bg-sidebar);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-right: 1px solid var(--border-color);
 }
 
 .name {
   margin: 0;
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: 700;
 }
 
 .tagline {
-  margin: 5px 0 30px 0;
-  font-size: 16px;
-  color: #555;
+  margin: 0.5rem 0 2rem;
+  font-size: 1rem;
+  color: var(--text-muted);
 }
 
-/* NAVIGATION */
 .nav a {
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: 0.75rem;
   text-decoration: none;
-  color: #222;
-  font-size: 17px;
+  color: var(--text-main);
+  font-size: 1.05rem;
 }
-
 .nav a.active {
   font-weight: bold;
 }
 
-/* SOCIAL ICONS (PLACEHOLDER) */
 .socials {
   display: flex;
-  gap: 15px;
-  margin-top: 40px;
+  gap: 1rem;
+  font-size: 1.4rem;
 }
 
-.socials a {
-  font-size: 22px;
-  text-decoration: none;
-  color: #444;
-}
-
-/* RIGHT CONTENT AREA */
+/*
+   MAIN CONTENT
+ */
 .content {
+  margin-left: var(--sidebar-width);
+  padding: var(--content-padding);
   flex: 1;
-  padding: 40px;
 }
 
-/* CARD GRID */
+/*
+   MASONRY CARDS (COLUMN LAYOUT)
+ */
 .cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 30px;
+  column-count: 3;
+  column-gap: var(--column-gap);
 }
 
-/* CARD STYLE */
 .card {
+  break-inside: avoid;
   background: white;
-  border-radius: 16px;
-  padding-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  cursor: pointer;
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  margin-bottom: var(--column-gap);
   transition: transform 0.15s ease;
+  display: block;
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-0.25rem);
 }
 
-.card-img {
-  height: 160px;
+/* Variable-height images for REAL masonry */
+.card-img img {
   width: 100%;
-  background: #dfe3e6;
-  border-radius: 16px 16px 0 0;
+  height: auto;
+  display: block;
 }
 
-/* CARD TEXT */
+.card-body {
+  padding: var(--card-padding);
+}
+
 .card-title {
-  margin: 15px 20px 5px;
-  font-size: 18px;
+  margin: 0;
+  font-size: 1.2rem;
   font-weight: 600;
 }
-
 .card-date {
-  margin: 0 20px;
-  font-size: 14px;
-  color: #777;
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/*
+   SECTIONS BELOW CARDS
+ */
+.section {
+  margin-top: 5rem;
+  padding-top: 2rem;
+}
+
+.section hr {
+  border: none;
+  border-top: 2px solid var(--border-color);
+  margin-bottom: 2rem;
+}
+
+.section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.section p {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+/*
+   RESPONSIVE BEHAVIOR
+ */
+@media (max-width: 1200px) {
+  .cards {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 800px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-right: none;
+  }
+
+  .content {
+    margin-left: 0;
+  }
+
+  .cards {
+    column-count: 1;
+  }
 }
