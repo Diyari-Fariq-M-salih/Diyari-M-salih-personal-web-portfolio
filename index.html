@@ -4,174 +4,244 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your Name | Portfolio</title>
+
+    <!-- Main stylesheet -->
     <link rel="stylesheet" href="/styles/main.css" />
   </head>
 
   <body>
+    <!-- ============================
+         PAGE LAYOUT (SIDEBAR + CONTENT)
+    ============================= -->
     <div class="layout">
-      <!-- LEFT FIXED SIDEBAR -->
-      <aside class="sidebar">
-        <div>
-          <h1 class="name">Your Name</h1>
-          <p class="tagline">Do cool things that matter!</p>
+      <!-- Fixed left sidebar -->
+      <aside class="layout__sidebar">
+        <div class="layout__sidebar-top">
+          <h1 class="layout__name">Your Name</h1>
+          <p class="layout__tagline">Do cool things that matter!</p>
 
-          <nav class="nav">
-            <a href="#home" class="active">Home</a>
-            <a href="#resources">Resources</a>
-            <a href="#publications">Publications</a>
-            <a href="#about">About Me</a>
+          <nav class="layout__nav nav">
+            <a href="#home" class="nav__link nav__link--active">Home</a>
+            <a href="#resources" class="nav__link">Resources</a>
+            <a href="#experience" class="nav__link">Experience</a>
+            <a href="#about" class="nav__link">About Me</a>
           </nav>
         </div>
 
-        <div class="socials">
-          <a href="#">🔍</a>
-          <a href="#">📷</a>
-          <a href="#">💼</a>
-          <a href="#">🐙</a>
+        <div class="layout__sidebar-bottom layout__socials">
+          <!-- Replace with actual social links -->
+          <a href="#" class="layout__social-link">🔍</a>
+          <a href="#" class="layout__social-link">📷</a>
+          <a href="#" class="layout__social-link">💼</a>
+          <a href="#" class="layout__social-link">🐙</a>
         </div>
       </aside>
 
-      <!-- RIGHT SIDE (SCROLLABLE CONTENT) -->
-      <main class="content" id="home">
-        <!-- PROJECT MASONRY GRID -->
-        <div class="cards">
-          <!-- CARD 1 -->
-          <div class="card">
-            <div class="card-img">
-              <img src="/assets/placeholder_img_1.png" alt="project" />
-            </div>
-            <div class="card-body">
-              <h2 class="card-title">Project Title Example</h2>
-              <p class="card-date">📅 July 31, 2025</p>
-            </div>
-          </div>
+      <!-- Main scrollable content on the right -->
+      <main class="layout__content">
+        <!-- ============================
+             HOME / PROJECTS SECTION
+        ============================= -->
+        <section id="home" class="section home">
+          <div class="home__cards">
+            <!-- Card 1 -->
+            <article class="home__card">
+              <div class="home__card-image">
+                <img
+                  src="/assets/placeholder_img_1.png"
+                  alt="Project preview 1"
+                />
+              </div>
+              <div class="home__card-body">
+                <h2 class="home__card-title">Project Title Example</h2>
+                <p class="home__card-date">📅 July 31, 2025</p>
+              </div>
+            </article>
 
-          <!-- CARD 2 -->
-          <div class="card">
-            <div class="card-img">
-              <img src="/assets/placeholder_img_2.png" alt="project" />
-            </div>
-            <div class="card-body">
-              <h2 class="card-title">Tutorial or Resource</h2>
-              <p class="card-date">📅 May 14, 2020</p>
-            </div>
-          </div>
+            <!-- Card 2 -->
+            <article class="home__card">
+              <div class="home__card-image">
+                <img
+                  src="/assets/placeholder_img_2.png"
+                  alt="Project preview 2"
+                />
+              </div>
+              <div class="home__card-body">
+                <h2 class="home__card-title">Tutorial or Resource</h2>
+                <p class="home__card-date">📅 May 14, 2020</p>
+              </div>
+            </article>
 
-          <!-- CARD 3 -->
-          <div class="card">
-            <div class="card-img">
-              <img src="/assets/placeholder_img_3.jpg" alt="project" />
-            </div>
-            <div class="card-body">
-              <h2 class="card-title">Another Cool Project</h2>
-              <p class="card-date">📅 June 4, 2021</p>
-            </div>
-          </div>
+            <!-- Card 3 -->
+            <article class="home__card">
+              <div class="home__card-image">
+                <img
+                  src="/assets/placeholder_img_3.jpg"
+                  alt="Project preview 3"
+                />
+              </div>
+              <div class="home__card-body">
+                <h2 class="home__card-title">Another Cool Project</h2>
+                <p class="home__card-date">📅 June 4, 2021</p>
+              </div>
+            </article>
 
-          <!-- CARD 4 -->
-          <div class="card">
-            <div class="card-img">
-              <img src="/assets/placeholder_img_2.png" alt="project" />
-            </div>
-            <div class="card-body">
-              <h2 class="card-title">Something Else Interesting</h2>
-              <p class="card-date">📅 Nov 13, 2019</p>
-            </div>
-          </div>
+            <!-- Card 4 -->
+            <article class="home__card">
+              <div class="home__card-image">
+                <img
+                  src="/assets/placeholder_img_2.png"
+                  alt="Project preview 4"
+                />
+              </div>
+              <div class="home__card-body">
+                <h2 class="home__card-title">Something Else Interesting</h2>
+                <p class="home__card-date">📅 Nov 13, 2019</p>
+              </div>
+            </article>
 
-          <!-- CARD 5 -->
-          <div class="card">
-            <div class="card-img">
-              <img src="/assets/placeholder_img_3.jpg" alt="project" />
-            </div>
-            <div class="card-body">
-              <h2 class="card-title">Something Else Interesting</h2>
-              <p class="card-date">📅 Nov 13, 2019</p>
-            </div>
-          </div>
+            <!-- Card 5 -->
+            <article class="home__card">
+              <div class="home__card-image">
+                <img
+                  src="/assets/placeholder_img_3.jpg"
+                  alt="Project preview 5"
+                />
+              </div>
+              <div class="home__card-body">
+                <h2 class="home__card-title">Something Else Interesting</h2>
+                <p class="home__card-date">📅 Nov 13, 2019</p>
+              </div>
+            </article>
 
-          <!-- CARD 6 -->
-          <div class="card">
-            <div class="card-img">
-              <img src="/assets/placeholder_img_1.png" alt="project" />
-            </div>
-            <div class="card-body">
-              <h2 class="card-title">Something Else Interesting</h2>
-              <p class="card-date">📅 Nov 13, 2019</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- RESOURCES SECTION -->
-        <section id="resources" class="section">
-          <hr />
-          <h2>Resources</h2>
-          <p>Showcase your research papers or articles here.</p>
-          <div class="resources-grid">
-            <div class="tool">
-              <img src="icons/python.svg" alt="Python" />
-              <span>Python</span>
-            </div>
-
-            <div class="tool">
-              <img src="icons/numpy.svg" alt="NumPy" />
-              <span>NumPy</span>
-            </div>
-
-            <div class="tool">
-              <img src="icons/tensorflow.svg" alt="TensorFlow" />
-              <span>TensorFlow</span>
-            </div>
-
-            <div class="tool">
-              <img src="icons/opencv.svg" alt="OpenCV" />
-              <span>OpenCV</span>
-            </div>
-
-            <div class="tool">
-              <img src="icons/solidworks.svg" alt="SolidWorks" />
-              <span>SolidWorks</span>
-            </div>
-
-            <div class="tool">
-              <img src="icons/matlab.svg" alt="MATLAB" />
-              <span>MATLAB</span>
-            </div>
-
-            <div class="tool">
-              <img src="icons/tinkercad.svg" alt="Tinkercad" />
-              <span>Tinkercad</span>
-            </div>
-
-            <div class="tool">
-              <img src="icons/blender.svg" alt="Blender" />
-              <span>Blender</span>
-            </div>
+            <!-- Card 6 -->
+            <article class="home__card">
+              <div class="home__card-image">
+                <img
+                  src="/assets/placeholder_img_1.png"
+                  alt="Project preview 6"
+                />
+              </div>
+              <div class="home__card-body">
+                <h2 class="home__card-title">Something Else Interesting</h2>
+                <p class="home__card-date">📅 Nov 13, 2019</p>
+              </div>
+            </article>
           </div>
         </section>
-        <section id="experience" class="section">
-          <hr />
-          <h2>Experience & Engineering Journey</h2>
 
-          <div class="timeline">
-            <!-- TIMELINE ITEM -->
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <h3>2025 — Present</h3>
-                <p>
-                  Current engineering work, personal projects, senior-level
-                  studies, and specialized exploration in robotics, CAD, AI/ML,
-                  or embedded systems.
+        <!-- ============================
+             RESOURCES SECTION (TOOLS / STACK)
+        ============================= -->
+        <section id="resources" class="section resources">
+          <hr class="section__divider" />
+          <h2 class="section__title">Resources</h2>
+          <p class="section__description">
+            A snapshot of the software, tools, and frameworks I use regularly.
+          </p>
+
+          <div class="resources__grid">
+            <article class="resources__tool">
+              <img
+                src="icons/python.svg"
+                alt="Python"
+                class="resources__tool-icon"
+              />
+              <span class="resources__tool-label">Python</span>
+            </article>
+
+            <article class="resources__tool">
+              <img
+                src="icons/numpy.svg"
+                alt="NumPy"
+                class="resources__tool-icon"
+              />
+              <span class="resources__tool-label">NumPy</span>
+            </article>
+
+            <article class="resources__tool">
+              <img
+                src="icons/tensorflow.svg"
+                alt="TensorFlow"
+                class="resources__tool-icon"
+              />
+              <span class="resources__tool-label">TensorFlow</span>
+            </article>
+
+            <article class="resources__tool">
+              <img
+                src="icons/opencv.svg"
+                alt="OpenCV"
+                class="resources__tool-icon"
+              />
+              <span class="resources__tool-label">OpenCV</span>
+            </article>
+
+            <article class="resources__tool">
+              <img
+                src="icons/solidworks.svg"
+                alt="SolidWorks"
+                class="resources__tool-icon"
+              />
+              <span class="resources__tool-label">SolidWorks</span>
+            </article>
+
+            <article class="resources__tool">
+              <img
+                src="icons/matlab.svg"
+                alt="MATLAB"
+                class="resources__tool-icon"
+              />
+              <span class="resources__tool-label">MATLAB</span>
+            </article>
+
+            <article class="resources__tool">
+              <img
+                src="icons/tinkercad.svg"
+                alt="Tinkercad"
+                class="resources__tool-icon"
+              />
+              <span class="resources__tool-label">Tinkercad</span>
+            </article>
+
+            <article class="resources__tool">
+              <img
+                src="icons/blender.svg"
+                alt="Blender"
+                class="resources__tool-icon"
+              />
+              <span class="resources__tool-label">Blender</span>
+            </article>
+          </div>
+        </section>
+
+        <!-- ============================
+             EXPERIENCE / ENGINEERING JOURNEY (TIMELINE)
+        ============================= -->
+        <section id="experience" class="section experience">
+          <hr class="section__divider" />
+          <h2 class="section__title">Experience &amp; Engineering Journey</h2>
+
+          <div class="experience__timeline">
+            <!-- Timeline item 1 -->
+            <div class="experience__timeline-item">
+              <div class="experience__timeline-dot"></div>
+              <div class="experience__timeline-content">
+                <h3 class="experience__timeline-heading">2025 — Present</h3>
+                <p class="experience__timeline-text">
+                  Current engineering work, personal projects, and specialized
+                  exploration in areas such as robotics, CAD, AI/ML, or embedded
+                  systems.
                 </p>
               </div>
             </div>
 
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <h3>2023 — 2024</h3>
-                <p>
+            <!-- Timeline item 2 -->
+            <div class="experience__timeline-item">
+              <div class="experience__timeline-dot"></div>
+              <div class="experience__timeline-content">
+                <h3 class="experience__timeline-heading">2023 — 2024</h3>
+                <p class="experience__timeline-text">
                   Undergraduate engineering coursework, project development,
                   MATLAB/Python work, mechanical design, simulation, group
                   projects, and labs.
@@ -179,11 +249,12 @@
               </div>
             </div>
 
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <h3>2021 — 2022</h3>
-                <p>
+            <!-- Timeline item 3 -->
+            <div class="experience__timeline-item">
+              <div class="experience__timeline-dot"></div>
+              <div class="experience__timeline-content">
+                <h3 class="experience__timeline-heading">2021 — 2022</h3>
+                <p class="experience__timeline-text">
                   Early engineering exploration — robotics, 3D printing, CAD
                   basics, introductory programming, and hands-on maker
                   experience.
@@ -191,11 +262,12 @@
               </div>
             </div>
 
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <h3>High School</h3>
-                <p>
+            <!-- Timeline item 4 -->
+            <div class="experience__timeline-item">
+              <div class="experience__timeline-dot"></div>
+              <div class="experience__timeline-content">
+                <h3 class="experience__timeline-heading">High School</h3>
+                <p class="experience__timeline-text">
                   Discovery of engineering interests: mechanical systems,
                   electronics, fabrication, early coding, and foundational STEM
                   achievements.
@@ -205,38 +277,52 @@
           </div>
         </section>
 
-        <section id="about" class="about-section">
-          <div class="about-content">
-            <div class="about-text">
-              <h2>about.</h2>
-              <p>
+        <!-- ============================
+             ABOUT ME + HOBBY CAROUSEL
+        ============================= -->
+        <section id="about" class="section about">
+          <hr class="section__divider" />
+          <h2 class="section__title">About Me</h2>
+
+          <!-- About text + profile image -->
+          <div class="about__content">
+            <div class="about__text">
+              <h3 class="about__heading">about.</h3>
+              <p class="about__intro">
                 I'm an engineering student passionate about building useful,
-                human-centered technology. I enjoy solving real problems through
-                mechanical design, simulation, software, and AI. When I'm not
-                working on projects, you'll find me exploring robotics, learning
-                new tools, working out, or diving into creative hobbies that
-                keep me curious and inspired.
+                human-centered technology.
+              </p>
+              <p class="about__body">
+                I enjoy solving real problems through mechanical design,
+                simulation, software, and AI. When I'm not working on projects,
+                you'll find me exploring robotics, learning new tools, working
+                out, or diving into creative hobbies that keep me curious and
+                inspired.
               </p>
             </div>
 
-            <div class="about-photo">
-              <img src="/assets/me.png" alt="Your Photo" />
+            <div class="about__photo">
+              <!-- Replace /assets/me.png with your actual path if needed -->
+              <img src="/assets/me.png" alt="Your portrait" />
             </div>
           </div>
 
-          <!-- HOBBY CAROUSEL -->
-          <div class="carousel-container">
-            <div class="carousel-track">
-              <img src="hobby1.jpg" alt="Hobby 1" />
-              <img src="hobby2.jpg" alt="Hobby 2" />
-              <img src="hobby3.jpg" alt="Hobby 3" />
-              <img src="hobby4.jpg" alt="Hobby 4" />
-              <img src="hobby5.jpg" alt="Hobby 5" />
-              <img src="hobby1.jpg" alt="Hobby 1" />
-              <img src="hobby2.jpg" alt="Hobby 2" />
-              <img src="hobby3.jpg" alt="Hobby 3" />
-              <img src="hobby4.jpg" alt="Hobby 4" />
-              <img src="hobby5.jpg" alt="Hobby 5" />
+          <!-- Hobbies / personal images carousel -->
+          <div class="about__carousel">
+            <div class="about__carousel-track">
+              <!-- You can swap these out with your real hobby photos -->
+              <img src="hobby1.jpg" alt="Hobby 1" class="about__carousel-img" />
+              <img src="hobby2.jpg" alt="Hobby 2" class="about__carousel-img" />
+              <img src="hobby3.jpg" alt="Hobby 3" class="about__carousel-img" />
+              <img src="hobby4.jpg" alt="Hobby 4" class="about__carousel-img" />
+              <img src="hobby5.jpg" alt="Hobby 5" class="about__carousel-img" />
+
+              <!-- Duplicated set for infinite looping -->
+              <img src="hobby1.jpg" alt="Hobby 1" class="about__carousel-img" />
+              <img src="hobby2.jpg" alt="Hobby 2" class="about__carousel-img" />
+              <img src="hobby3.jpg" alt="Hobby 3" class="about__carousel-img" />
+              <img src="hobby4.jpg" alt="Hobby 4" class="about__carousel-img" />
+              <img src="hobby5.jpg" alt="Hobby 5" class="about__carousel-img" />
             </div>
           </div>
         </section>
