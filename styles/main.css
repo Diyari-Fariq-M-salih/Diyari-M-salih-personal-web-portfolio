@@ -148,6 +148,18 @@ body {
   color: var(--color-text-muted);
   margin: 0 0 1rem;
 }
+/* =========================================
+   HOME PAGE QUOTE
+========================================= */
+
+.home-quote {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #3a3a3a;
+  margin-bottom: 2rem;
+  line-height: 1.4;
+  max-width: 1150px;
+}
 
 /* =========================================
    HOME SECTION (MASONRY PROJECT CARDS)
@@ -158,6 +170,7 @@ body {
 .home__cards {
   column-count: 3;
   column-gap: var(--layout-column-gap);
+  margin-top: -4rem;
 }
 
 /* Each card column item */
