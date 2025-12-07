@@ -1,0 +1,10 @@
+my-portfolio/
+ ├── index.html
+ ├── styles/
+ │     └── main.css
+ ├── scripts/
+ │     └── main.js
+ ├── assets/
+ │     ├── images/
+ │     └── fonts/
+ └── README.md
