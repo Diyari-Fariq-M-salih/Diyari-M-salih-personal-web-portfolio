@@ -1,0 +1,107 @@
+/* GENERAL PAGE LAYOUT */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #222;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* LEFT SIDEBAR */
+.sidebar {
+  width: 280px;
+  padding: 40px 30px;
+  background: #f8f9fb;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.name {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.tagline {
+  margin: 5px 0 30px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+/* NAVIGATION */
+.nav a {
+  display: block;
+  margin-bottom: 12px;
+  text-decoration: none;
+  color: #222;
+  font-size: 17px;
+}
+
+.nav a.active {
+  font-weight: bold;
+}
+
+/* SOCIAL ICONS (PLACEHOLDER) */
+.socials {
+  display: flex;
+  gap: 15px;
+  margin-top: 40px;
+}
+
+.socials a {
+  font-size: 22px;
+  text-decoration: none;
+  color: #444;
+}
+
+/* RIGHT CONTENT AREA */
+.content {
+  flex: 1;
+  padding: 40px;
+}
+
+/* CARD GRID */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* CARD STYLE */
+.card {
+  background: white;
+  border-radius: 16px;
+  padding-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card-img {
+  height: 160px;
+  width: 100%;
+  background: #dfe3e6;
+  border-radius: 16px 16px 0 0;
+}
+
+/* CARD TEXT */
+.card-title {
+  margin: 15px 20px 5px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.card-date {
+  margin: 0 20px;
+  font-size: 14px;
+  color: #777;
+}
