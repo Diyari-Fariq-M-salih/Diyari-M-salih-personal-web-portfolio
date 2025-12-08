@@ -57,8 +57,28 @@
                 <img src="./assets/Project_1.gif" alt="Project preview 1" />
               </div>
               <div class="home__card-body">
-                <h2 class="home__card-title">Project Title Example</h2>
-                <p class="home__card-date">📅 July 31, 2025</p>
+                <h2
+                  class="home__card-title"
+                  style="cursor: pointer"
+                  onclick="window.open('https://github.com/Diyari-Fariq-M-salih/MultiUAV-NavLab', '_blank')"
+                >
+                  Multi-UGV Simulator with GUI
+                  <svg
+                    class="arrow-icon"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M5 12h14M13 5l7 7-7 7"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </h2>
+                <p class="home__card-date">📅 Oct 28, 2025</p>
               </div>
             </article>
 
@@ -446,4 +466,10 @@
       </main>
     </div>
   </body>
+  <script>
+    document.querySelectorAll("a").forEach((a) => {
+      a.setAttribute("target", "_blank");
+      a.setAttribute("rel", "noopener noreferrer");
+    });
+  </script>
 </html>

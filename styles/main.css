@@ -205,6 +205,23 @@ body {
   margin: 0;
   font-size: 1.2rem;
   font-weight: 600;
+  cursor: pointer !important;
+  display: inline-flex;
+  align-items: center; /* vertical centering */
+  gap: 6px; /* spacing between text and arrow */
+}
+.home__card-title svg {
+  width: 16px;
+  height: 16px;
+}
+.arrow-icon {
+  padding-top: 6px;
+  margin-left: 6px;
+  transition: transform 0.2s ease;
+}
+
+.home__card-title:hover .arrow-icon {
+  transform: translateX(4px);
 }
 
 .home__card-date {
@@ -668,6 +685,12 @@ body {
   .footer__info {
     grid-template-columns: 1fr;
   }
+}
+.home__card-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer !important;
 }
 
 /* =========================================
