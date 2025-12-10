@@ -621,7 +621,7 @@ body {
   color: #eee;
   padding: 3rem 2rem;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: auto auto auto auto;
   gap: 2rem;
 }
 
@@ -747,10 +747,13 @@ body {
 /* =========================================
    DEBUG STYLES - TO BE REMOVED IN PRODUCTION
    ========================================= */
-/* * {
-  outline: 1px solid rgba(255, 0, 0, 0.25);
+/* 
+* {
+  outline: 1px solid rgba(255, 0, 0, 1) !important;
 }
-html,
-body {
-  overflow-x: auto !important;
+* {
+  outline: 1px solid red !important;
+}
+html * {
+  outline: 1px solid red !important;
 } */

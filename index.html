@@ -3,9 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <base
-      href="https://diyari-fariq-m-salih.github.io/Diyari-M-salih-personal-web-portfolio/"
-    />
     <title>Diyari | Portfolio</title>
 
     <!-- Main stylesheet -->
@@ -28,7 +25,7 @@
           <nav class="layout__nav nav">
             <a href="#home" class="nav__link nav__link--active">Home</a>
             <a href="#resources" class="nav__link">Resources</a>
-            <a href="#experience" class="nav__link">Journey</a>
+            <a href="#Journey" class="nav__link">Journey</a>
             <a href="#about" class="nav__link">About Me</a>
           </nav>
         </div>
@@ -449,7 +446,7 @@
         <!-- ============================
              EXPERIENCE / ENGINEERING JOURNEY (TIMELINE)
         ============================= -->
-        <section id="experience" class="section experience">
+        <section id="Journey" class="section experience">
           <hr class="section__divider" />
           <h2 class="section__title">Experience &amp; Engineering Journey</h2>
 
@@ -544,7 +541,7 @@
           <!-- About text + profile image -->
           <div class="about__content">
             <div class="about__text">
-              <h3 class="about__heading">about.</h3>
+              <h3 class="about__heading">Diyari, meaning Gift</h3>
               <p class="about__intro">
                 I'm an engineering student passionate about building useful,
                 human-centered technology. I also like penguins :D
@@ -687,7 +684,7 @@
               <h4 class="footer__col-title">Links</h4>
               <a href="#home" class="footer__col-link">Home</a>
               <a href="#resources" class="footer__col-link">Resources</a>
-              <a href="#experience" class="footer__col-link">Experience</a>
+              <a href="#Journey" class="footer__col-link">Journey</a>
               <a href="#about" class="footer__col-link">About Me</a>
             </div>
 
@@ -708,9 +705,20 @@
     </div>
   </body>
   <script>
-    document.querySelectorAll("a").forEach((a) => {
-      a.setAttribute("target", "_blank");
-      a.setAttribute("rel", "noopener noreferrer");
+    document.querySelectorAll("a[href]").forEach((a) => {
+      const href = a.getAttribute("href");
+
+      // Ignore internal anchors
+      if (href.startsWith("#")) return;
+
+      // Ignore mailto:
+      if (href.startsWith("mailto:")) return;
+
+      // Only external links get target="_blank"
+      if (!a.href.includes(window.location.hostname)) {
+        a.setAttribute("target", "_blank");
+        a.setAttribute("rel", "noopener noreferrer");
+      }
     });
   </script>
 </html>
