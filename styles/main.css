@@ -450,6 +450,7 @@ body {
   max-width: 350px;
   border-radius: 1rem;
   object-fit: cover;
+  transform: scaleX(-1);
 }
 
 /* =========================================
