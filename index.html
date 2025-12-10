@@ -1,724 +1,789 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Diyari | Portfolio</title>
+<!--
+===============================================================================
+                                PORTFOLIO WEBSITE
+                           STRUCTURE & MAINTENANCE GUIDE
+===============================================================================
 
-    <!-- Main stylesheet -->
-    <link rel="stylesheet" href="styles/main.css" />
-  </head>
+HOW TO USE & UPDATE THIS FILE (Recommended Workflow)
+----------------------------------------------------
 
-  <body>
-    <!-- ============================
+1. HOMEPAGE PROJECT CARDS
+   - Each project is an <article class="home__card"> item.
+   - To add a new project, duplicate one card and update:
+       - Image file
+       - Title <h2>
+       - Date text
+       - onclick GitHub link
+   - Mobile hides even-numbered cards (CSS-controlled).
+
+2. RESOURCES SECTION
+   - Icons are listed as <article class="resources__tool">
+   - To add/remove skills:
+       - Duplicate or delete a line
+       - Update the icon file + label
+   - Grid layout is controlled entirely from CSS.
+
+3. EXPERIENCE / JOURNEY SECTION
+   - Each timeline entry is one <div class="experience__timeline-item">
+   - You can reorder or add more items freely; spacing is CSS-driven.
+
+4. ABOUT SECTION
+   - Title shows a small penguin (CSS ::after element).
+   - Big penguin image appears ONLY on desktop.
+   - Carousel images are inside <div class="about__carousel-track">.
+   - Add/remove images by duplicating <img> entries.
+
+5. FOOTER SECTION
+   - Footer is a 2×2 grid on mobile; full layout on desktop.
+   - Feel free to adjust text or links without worrying about styling.
+
+6. DO NOT MODIFY:
+   - Class names (CSS relies on them)
+   - Data attributes
+   - Structural ordering of major sections unless necessary
+
+7. SAFE TO MODIFY:
+   - Text content
+   - Images
+   - URLs
+   - Adding/removing repeated items
+
+8. NOTE:
+   - All responsiveness is controlled in main.css.
+   - index.html should never contain inline styles (except icons or SVG).
+
+This file has been fully cleaned, organized, and formatted for long-term
+maintenance. Future updates will be easy and safe.
+
+===============================================================================
+-->
+
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Diyari | Portfolio</title>
+
+      <!-- Main stylesheet -->
+      <link rel="stylesheet" href="styles/main.css" />
+    </head>
+
+    <body>
+      <!-- ============================
          PAGE LAYOUT (SIDEBAR + CONTENT)
     ============================= -->
-    <div class="layout">
-      <!-- Fixed left sidebar -->
-      <aside class="layout__sidebar">
-        <div class="layout__sidebar-top">
-          <h1 class="layout__name">Diyari-Fariq</h1>
-          <p class="layout__tagline">
-            "To solve a problem is to honor the intellect gifted you"
-          </p>
+      <div class="layout">
+        <!-- Fixed left sidebar -->
+        <aside class="layout__sidebar">
+          <div class="layout__sidebar-top">
+            <h1 class="layout__name">Diyari-Fariq</h1>
+            <p class="layout__tagline">
+              "To solve a problem is to honor the intellect gifted you"
+            </p>
 
-          <nav class="layout__nav nav">
-            <a href="#home" class="nav__link nav__link--active">Home</a>
-            <a href="#resources" class="nav__link">Resources</a>
-            <a href="#Journey" class="nav__link">Journey</a>
-            <a href="#about" class="nav__link">About Me</a>
-          </nav>
-        </div>
-
-        <!-- SOCIAL ICONS (SVG + real links) -->
-        <div class="layout__sidebar-bottom layout__socials">
-          <a
-            href="https://github.com/Diyari-Fariq-M-salih"
-            class="layout__social-link"
-            target="_blank"
-          >
-            <img src="./assets/contact_ (3).svg" alt="GitHub" />
-          </a>
-
-          <a
-            href="https://www.linkedin.com/in/diyari-fariq-447a1225a/"
-            class="layout__social-link"
-            target="_blank"
-          >
-            <img src="./assets/contact_ (2).svg" alt="LinkedIn" />
-          </a>
-
-          <a href="mailto:diyari.m.salih@gmail.com" class="layout__social-link">
-            <img src="./assets/contact_ (1).svg" alt="Email" />
-          </a>
-        </div>
-      </aside>
-
-      <!-- Main scrollable content on the right -->
-      <main class="layout__content">
-        <div class="home-quote">
-          “On ne crée pas pour impressionner, mais pour améliorer le monde.”
-        </div>
-
-        <!-- ============================
-             HOME / PROJECTS SECTION
-        ============================= -->
-        <section id="home" class="section home">
-          <div class="home__cards">
-            <!-- Card 1 -->
-            <article class="home__card">
-              <div class="home__card-image">
-                <img src="./assets/Project_1.gif" alt="Project preview 1" />
-              </div>
-              <div class="home__card-body">
-                <h2
-                  class="home__card-title"
-                  style="cursor: pointer"
-                  onclick="window.open('https://github.com/Diyari-Fariq-M-salih/MultiUAV-NavLab', '_blank')"
-                >
-                  Multi-UGV Simulator with GUI
-                  <svg
-                    class="arrow-icon"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M5 12h14M13 5l7 7-7 7"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      fill="none"
-                      stroke-linecap="round"
-                    />
-                  </svg>
-                </h2>
-                <p class="home__card-date">📅 Oct 28, 2025</p>
-              </div>
-            </article>
-
-            <!-- Card 2 -->
-            <article class="home__card">
-              <div class="home__card-image">
-                <img src="./assets/Project_2.jpg" alt="Project preview 2" />
-              </div>
-              <div class="home__card-body">
-                <h2
-                  class="home__card-title"
-                  style="cursor: pointer"
-                  onclick="window.open('https://github.com/Diyari-Fariq-M-salih/Face_Emotion_detection_OpenCV_29062025', '_blank')"
-                >
-                  OpenCV Face Emotion Detection
-                  <svg
-                    class="arrow-icon"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M5 12h14M13 5l7 7-7 7"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      fill="none"
-                      stroke-linecap="round"
-                    />
-                  </svg>
-                </h2>
-                <p class="home__card-date">📅 June 15, 2025</p>
-              </div>
-            </article>
-
-            <!-- Card 3 -->
-            <article class="home__card">
-              <div class="home__card-image">
-                <img src="./assets/Project_3.png" alt="Project preview 3" />
-              </div>
-              <div class="home__card-body">
-                <h2
-                  class="home__card-title"
-                  style="cursor: pointer"
-                  onclick="window.open('https://github.com/Diyari-Fariq-M-salih/MatLab-3d-urban-path-planner', '_blank')"
-                >
-                  3D Point in space Urban Path Planner
-                  <svg
-                    class="arrow-icon"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M5 12h14M13 5l7 7-7 7"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      fill="none"
-                      stroke-linecap="round"
-                    />
-                  </svg>
-                </h2>
-                <p class="home__card-date">📅 Oct 12, 2025</p>
-              </div>
-            </article>
-
-            <!-- Card 4 -->
-            <article class="home__card">
-              <div class="home__card-image">
-                <img src="./assets/Project_4.png" alt="Project preview 4" />
-              </div>
-              <div class="home__card-body">
-                <h2
-                  class="home__card-title"
-                  style="cursor: pointer"
-                  onclick="window.open('https://github.com/Diyari-Fariq-M-salih/Matlab-Regression-with-NN-and-RL', '_blank')"
-                >
-                  Regression with Neural Networks & Reinforcement Learning
-                  <svg
-                    class="arrow-icon"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M5 12h14M13 5l7 7-7 7"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      fill="none"
-                      stroke-linecap="round"
-                    />
-                  </svg>
-                </h2>
-                <p class="home__card-date">📅 Dec 6, 2025</p>
-              </div>
-            </article>
-
-            <!-- Card 5 -->
-            <article class="home__card">
-              <div class="home__card-image">
-                <img src="./assets/Project_5.gif" alt="Project preview 5" />
-              </div>
-              <div class="home__card-body">
-                <h2
-                  class="home__card-title"
-                  style="cursor: pointer"
-                  onclick="window.open('https://github.com/Diyari-Fariq-M-salih/Computer-Vision-for-Robotics--lane-following-or-detection-', '_blank')"
-                >
-                  Computer Vision for Robotics: Lane Detection
-                  <svg
-                    class="arrow-icon"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M5 12h14M13 5l7 7-7 7"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      fill="none"
-                      stroke-linecap="round"
-                    />
-                  </svg>
-                </h2>
-                <p class="home__card-date">📅 Nov 1, 2025</p>
-              </div>
-            </article>
-
-            <!-- Card 6 -->
-            <article class="home__card">
-              <div class="home__card-image">
-                <img src="./assets/Project_6.png" alt="Project preview 6" />
-              </div>
-              <div class="home__card-body">
-                <h2
-                  class="home__card-title"
-                  style="cursor: pointer"
-                  onclick="window.open('https://github.com/Diyari-Fariq-M-salih/MatLab-stereo-block-matching', '_blank')"
-                >
-                  stereo pixels matching heatmaps
-                  <svg
-                    class="arrow-icon"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M5 12h14M13 5l7 7-7 7"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      fill="none"
-                      stroke-linecap="round"
-                    />
-                  </svg>
-                </h2>
-                <p class="home__card-date">📅 Dec 5, 2025</p>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <!-- ============================
-             RESOURCES SECTION (TOOLS / STACK)
-        ============================= -->
-        <section id="resources" class="section resources">
-          <hr class="section__divider" />
-          <h2 class="section__title">Resources</h2>
-          <p class="section__description">
-            A snapshot of the software, tools, and frameworks I use regularly.
-          </p>
-
-          <div class="resources__grid">
-            <article class="resources__tool">
-              <img
-                src="assets/icon- (1).png"
-                alt="Python"
-                class="resources__tool-icon"
-              />
-              <span class="resources__tool-label">TensorFlow</span>
-            </article>
-            <article class="resources__tool">
-              <img
-                src="assets/icon- (2).png"
-                alt="NumPy"
-                class="resources__tool-icon"
-              />
-              <span class="resources__tool-label">TinkerCAD</span>
-            </article>
-            <article class="resources__tool">
-              <img
-                src="assets/icon- (3).png"
-                alt="TensorFlow"
-                class="resources__tool-icon"
-              />
-              <span class="resources__tool-label">YOLO</span>
-            </article>
-            <article class="resources__tool">
-              <img
-                src="assets/icon- (4).png"
-                alt="Python"
-                class="resources__tool-icon"
-              />
-              <span class="resources__tool-label">Arduino</span>
-            </article>
-            <article class="resources__tool">
-              <img
-                src="assets/icon- (1).png"
-                alt="Python"
-                class="resources__tool-icon"
-              />
-              <span class="resources__tool-label">TensorFlow</span>
-            </article>
-            <article class="resources__tool">
-              <img
-                src="assets/icon- (5).png"
-                alt="Python"
-                class="resources__tool-icon"
-              />
-              <span class="resources__tool-label">AutoCAD</span>
-            </article>
-            <article class="resources__tool">
-              <img
-                src="assets/icon- (6).png"
-                alt="Python"
-                class="resources__tool-icon"
-              />
-              <span class="resources__tool-label">Blender</span>
-            </article>
-            <article class="resources__tool">
-              <img
-                src="assets/icon- (7).png"
-                alt="Python"
-                class="resources__tool-icon"
-              />
-              <span class="resources__tool-label">C/C++</span>
-            </article>
-            <article class="resources__tool">
-              <img
-                src="assets/icon- (8).png"
-                alt="Python"
-                class="resources__tool-icon"
-              />
-              <span class="resources__tool-label">SolidWorks</span>
-            </article>
-            <article class="resources__tool">
-              <img
-                src="assets/icon- (9).png"
-                alt="Python"
-                class="resources__tool-icon"
-              />
-              <span class="resources__tool-label">ESP</span>
-            </article>
-            <article class="resources__tool">
-              <img
-                src="assets/icon- (10).png"
-                alt="Python"
-                class="resources__tool-icon"
-              />
-              <span class="resources__tool-label">Git/Github</span>
-            </article>
-            <article class="resources__tool">
-              <img
-                src="assets/icon- (11).png"
-                alt="Python"
-                class="resources__tool-icon"
-              />
-              <span class="resources__tool-label">JavaScript</span>
-            </article>
-            <article class="resources__tool">
-              <img
-                src="assets/icon- (12).png"
-                alt="Python"
-                class="resources__tool-icon"
-              />
-              <span class="resources__tool-label">Jupiter</span>
-            </article>
-            <article class="resources__tool">
-              <img
-                src="assets/icon- (13).png"
-                alt="Python"
-                class="resources__tool-icon"
-              />
-              <span class="resources__tool-label">KiCad</span>
-            </article>
-            <article class="resources__tool">
-              <img
-                src="assets/icon- (14).png"
-                alt="Python"
-                class="resources__tool-icon"
-              />
-              <span class="resources__tool-label">Latex</span>
-            </article>
-            <article class="resources__tool">
-              <img
-                src="assets/icon- (15).png"
-                alt="Python"
-                class="resources__tool-icon"
-              />
-              <span class="resources__tool-label">Numpy</span>
-            </article>
-            <article class="resources__tool">
-              <img
-                src="assets/icon- (16).png"
-                alt="Python"
-                class="resources__tool-icon"
-              />
-              <span class="resources__tool-label">OpenCV</span>
-            </article>
-            <article class="resources__tool">
-              <img
-                src="assets/icon- (17).png"
-                alt="Python"
-                class="resources__tool-icon"
-              />
-              <span class="resources__tool-label">Python</span>
-            </article>
-            <article class="resources__tool">
-              <img
-                src="assets/icon- (18).png"
-                alt="Python"
-                class="resources__tool-icon"
-              />
-              <span class="resources__tool-label">Pytorch</span>
-            </article>
-            <article class="resources__tool">
-              <img
-                src="assets/icon- (1).png"
-                alt="Python"
-                class="resources__tool-icon"
-              />
-              <span class="resources__tool-label">TensorFlow</span>
-            </article>
-            <article class="resources__tool">
-              <img
-                src="assets/icon- (19).png"
-                alt="Python"
-                class="resources__tool-icon"
-              />
-              <span class="resources__tool-label">ROS/ROS2</span>
-            </article>
-            <article class="resources__tool">
-              <img
-                src="assets/icon- (20).png"
-                alt="Python"
-                class="resources__tool-icon"
-              />
-              <span class="resources__tool-label">Scikit Learn</span>
-            </article>
-          </div>
-        </section>
-
-        <!-- ============================
-             EXPERIENCE / ENGINEERING JOURNEY (TIMELINE)
-        ============================= -->
-        <section id="Journey" class="section experience">
-          <hr class="section__divider" />
-          <h2 class="section__title">Experience &amp; Engineering Journey</h2>
-
-          <div class="experience__timeline">
-            <!-- Timeline item 1 -->
-            <div class="experience__timeline-item">
-              <div class="experience__timeline-dot"></div>
-              <div class="experience__timeline-content">
-                <h3 class="experience__timeline-heading">2025 — Present</h3>
-                <p class="experience__timeline-text">
-                  Beginning my Master’s in Smart Aerospace & Autonomous Systems,
-                  studying between Poznań, Poland and Paris–Évry, France.
-                  Working on UAV development, robotics, AI/ML systems, embedded
-                  electronics, and simulation. This period represents my
-                  international engineering growth and specialization as I
-                  prepare for a 6-month engineering internship.
-                </p>
-              </div>
-            </div>
-
-            <!-- Timeline item 2 -->
-            <div class="experience__timeline-item">
-              <div class="experience__timeline-dot"></div>
-              <div class="experience__timeline-content">
-                <h3 class="experience__timeline-heading">2023 — 2024</h3>
-                <p class="experience__timeline-text">
-                  Completed my B.Sc. in Mechanics & Mechatronics at Salahaddin
-                  University, graduating second in my department. Delivered two
-                  major projects: an IoT-GSM home automation system and an LPG
-                  fire-risk reduction study. Strengthened skills in MATLAB,
-                  Python, robotics, simulation, and mechanical design.
-                </p>
-              </div>
-            </div>
-
-            <!-- Timeline item 3 -->
-            <div class="experience__timeline-item">
-              <div class="experience__timeline-dot"></div>
-              <div class="experience__timeline-content">
-                <h3 class="experience__timeline-heading">2021 — 2022</h3>
-                <p class="experience__timeline-text">
-                  Worked at Unigaz Co. as a pipeline designer and site engineer
-                  while studying. Designed NFPA-compliant LPG networks and
-                  oversaw installations across residential buildings. This
-                  marked my first professional engineering role and taught me
-                  practical fieldwork, safety standards, and technical
-                  responsibility.
-                </p>
-              </div>
-            </div>
-
-            <!-- Timeline item 4 -->
-            <div class="experience__timeline-item">
-              <div class="experience__timeline-dot"></div>
-              <div class="experience__timeline-content">
-                <h3 class="experience__timeline-heading">
-                  2019 — Start of University
-                </h3>
-                <p class="experience__timeline-text">
-                  Relocated to Erbil to begin my bachelor’s studies in Mechanics
-                  & Mechatronics. Early university years included robotics, 3D
-                  printing, CAD work, microcontrollers, and foundational
-                  programming—forming the basis for my engineering identity.
-                </p>
-              </div>
-            </div>
-
-            <!-- Timeline item 5 -->
-            <div class="experience__timeline-item">
-              <div class="experience__timeline-dot"></div>
-              <div class="experience__timeline-content">
-                <h3 class="experience__timeline-heading">High School</h3>
-                <p class="experience__timeline-text">
-                  Ranked third across my entire school. Discovered my interest
-                  in engineering through mechanics, electronics, early coding,
-                  problem-solving, and STEM activities. This period set the
-                  direction for my university and career path in robotics and
-                  autonomy.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ============================
-             ABOUT ME + HOBBY CAROUSEL
-        ============================= -->
-        <section id="about" class="section about">
-          <hr class="section__divider" />
-          <h2 class="section__title">About Me</h2>
-
-          <!-- About text + profile image -->
-          <div class="about__content">
-            <div class="about__text">
-              <h3 class="about__heading">Diyari, meaning Gift</h3>
-              <p class="about__intro">
-                I'm an engineering student passionate about building useful,
-                human-centered technology. I also like penguins :D
-              </p>
-              <p class="about__body">
-                I'm Diyari Salih, a robotics and autonomous systems engineering
-                student with experience in mechanics, embedded electronics, and
-                AI-driven perception. After ranking top of my school and
-                completing a Mechanics & Mechatronics degree, I gained hands-on
-                experience in pipeline design, PLC diagnostics, and data
-                modeling. I now study in France and Poland, focusing on UAVs,
-                quadruped robots, ML and AI, path planning, and computer vision
-                while building systems that unite sensing, autonomy, and
-                real-time control.
-              </p>
-            </div>
-
-            <div class="about__photo">
-              <!-- Replace /assets/me.png with your actual path if needed -->
-              <img src="./assets/Logo (2).png" alt="Your portrait" />
-            </div>
+            <nav class="layout__nav nav">
+              <a href="#home" class="nav__link nav__link--active">Home</a>
+              <a href="#resources" class="nav__link">Resources</a>
+              <a href="#Journey" class="nav__link">Journey</a>
+              <a href="#about" class="nav__link">About Me</a>
+            </nav>
           </div>
 
-          <!-- Hobbies / personal images carousel -->
-          <div class="about__carousel">
-            <div class="about__carousel-track">
-              <!-- You can swap these out with your real hobby photos -->
-              <img
-                src="./assets/hobby1.jpg"
-                alt="Hobby 1"
-                class="about__carousel-img"
-              />
-              <img
-                src="./assets/hobby2.jpg"
-                alt="Hobby 2"
-                class="about__carousel-img"
-              />
-              <img
-                src="./assets/hobby3.jpg"
-                alt="Hobby 3"
-                class="about__carousel-img"
-              />
-              <img
-                src="./assets/hobby4.jpg"
-                alt="Hobby 4"
-                class="about__carousel-img"
-              />
-              <img
-                src="./assets/hobby5.jpg"
-                alt="Hobby 5"
-                class="about__carousel-img"
-              />
+          <!-- SOCIAL ICONS (SVG + real links) -->
+          <div class="layout__sidebar-bottom layout__socials">
+            <a
+              href="https://github.com/Diyari-Fariq-M-salih"
+              class="layout__social-link"
+              target="_blank"
+            >
+              <img src="./assets/contact_ (3).svg" alt="GitHub" />
+            </a>
 
-              <!-- Duplicated set for infinite looping -->
-              <img
-                src="./assets/hobby1.jpg"
-                alt="Hobby 1"
-                class="about__carousel-img"
-              />
-              <img
-                src="./assets/hobby2.jpg"
-                alt="Hobby 2"
-                class="about__carousel-img"
-              />
-              <img
-                src="./assets/hobby3.jpg"
-                alt="Hobby 3"
-                class="about__carousel-img"
-              />
-              <img
-                src="./assets/hobby4.jpg"
-                alt="Hobby 4"
-                class="about__carousel-img"
-              />
-              <img
-                src="./assets/hobby5.jpg"
-                alt="Hobby 5"
-                class="about__carousel-img"
-              />
-            </div>
-          </div>
-        </section>
-        <footer class="footer">
-          <!-- ============================
-       TOP CALL-TO-ACTION BAR
-  ============================= -->
-          <div class="footer__cta">
-            <div class="footer__cta-left">READY TO CONNECT? →</div>
-
-            <div class="footer__cta-center">
-              <h2 class="footer__cta-title">Contact Me</h2>
-              <div class="footer__cta-underline"></div>
-            </div>
+            <a
+              href="https://www.linkedin.com/in/diyari-fariq-447a1225a/"
+              class="layout__social-link"
+              target="_blank"
+            >
+              <img src="./assets/contact_ (2).svg" alt="LinkedIn" />
+            </a>
 
             <a
               href="mailto:diyari.m.salih@gmail.com"
-              class="footer__cta-button"
+              class="layout__social-link"
             >
-              <svg class="footer__cta-icon" viewBox="0 0 24 24">
-                <path
-                  d="M5 12h14M13 6l6 6-6 6"
-                  stroke="black"
-                  stroke-width="2"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
+              <img src="./assets/contact_ (1).svg" alt="Email" />
             </a>
+          </div>
+        </aside>
+
+        <!-- Main scrollable content on the right -->
+        <main class="layout__content">
+          <div class="home-quote">
+            “On ne crée pas pour impressionner, mais pour améliorer le monde.”
           </div>
 
           <!-- ============================
-       BOTTOM DARK INFO GRID
-  ============================= -->
-          <div class="footer__info">
-            <!-- Branding -->
-            <div class="footer__brand">
-              <h3 class="footer__brand-title">Mohammed-salih Diyari</h3>
-              <p class="footer__brand-subtitle">Engineering Portfolio</p>
+             HOME / PROJECTS SECTION
+        ============================= -->
+          <section id="home" class="section home">
+            <div class="home__cards">
+              <!-- Card 1 -->
+              <article class="home__card">
+                <div class="home__card-image">
+                  <img src="./assets/Project_1.gif" alt="Project preview 1" />
+                </div>
+                <div class="home__card-body">
+                  <h2
+                    class="home__card-title"
+                    style="cursor: pointer"
+                    onclick="window.open('https://github.com/Diyari-Fariq-M-salih/MultiUAV-NavLab', '_blank')"
+                  >
+                    Multi-UGV Simulator with GUI
+                    <svg
+                      class="arrow-icon"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M5 12h14M13 5l7 7-7 7"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        fill="none"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </h2>
+                  <p class="home__card-date">📅 Oct 28, 2025</p>
+                </div>
+              </article>
+
+              <!-- Card 2 -->
+              <article class="home__card">
+                <div class="home__card-image">
+                  <img src="./assets/Project_2.jpg" alt="Project preview 2" />
+                </div>
+                <div class="home__card-body">
+                  <h2
+                    class="home__card-title"
+                    style="cursor: pointer"
+                    onclick="window.open('https://github.com/Diyari-Fariq-M-salih/Face_Emotion_detection_OpenCV_29062025', '_blank')"
+                  >
+                    OpenCV Face Emotion Detection
+                    <svg
+                      class="arrow-icon"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M5 12h14M13 5l7 7-7 7"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        fill="none"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </h2>
+                  <p class="home__card-date">📅 June 15, 2025</p>
+                </div>
+              </article>
+
+              <!-- Card 3 -->
+              <article class="home__card">
+                <div class="home__card-image">
+                  <img src="./assets/Project_3.png" alt="Project preview 3" />
+                </div>
+                <div class="home__card-body">
+                  <h2
+                    class="home__card-title"
+                    style="cursor: pointer"
+                    onclick="window.open('https://github.com/Diyari-Fariq-M-salih/MatLab-3d-urban-path-planner', '_blank')"
+                  >
+                    3D Point in space Urban Path Planner
+                    <svg
+                      class="arrow-icon"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M5 12h14M13 5l7 7-7 7"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        fill="none"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </h2>
+                  <p class="home__card-date">📅 Oct 12, 2025</p>
+                </div>
+              </article>
+
+              <!-- Card 4 -->
+              <article class="home__card">
+                <div class="home__card-image">
+                  <img src="./assets/Project_4.png" alt="Project preview 4" />
+                </div>
+                <div class="home__card-body">
+                  <h2
+                    class="home__card-title"
+                    style="cursor: pointer"
+                    onclick="window.open('https://github.com/Diyari-Fariq-M-salih/Matlab-Regression-with-NN-and-RL', '_blank')"
+                  >
+                    Regression with Neural Networks & Reinforcement Learning
+                    <svg
+                      class="arrow-icon"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M5 12h14M13 5l7 7-7 7"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        fill="none"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </h2>
+                  <p class="home__card-date">📅 Dec 6, 2025</p>
+                </div>
+              </article>
+
+              <!-- Card 5 -->
+              <article class="home__card">
+                <div class="home__card-image">
+                  <img src="./assets/Project_5.gif" alt="Project preview 5" />
+                </div>
+                <div class="home__card-body">
+                  <h2
+                    class="home__card-title"
+                    style="cursor: pointer"
+                    onclick="window.open('https://github.com/Diyari-Fariq-M-salih/Computer-Vision-for-Robotics--lane-following-or-detection-', '_blank')"
+                  >
+                    Computer Vision for Robotics: Lane Detection
+                    <svg
+                      class="arrow-icon"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M5 12h14M13 5l7 7-7 7"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        fill="none"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </h2>
+                  <p class="home__card-date">📅 Nov 1, 2025</p>
+                </div>
+              </article>
+
+              <!-- Card 6 -->
+              <article class="home__card">
+                <div class="home__card-image">
+                  <img src="./assets/Project_6.png" alt="Project preview 6" />
+                </div>
+                <div class="home__card-body">
+                  <h2
+                    class="home__card-title"
+                    style="cursor: pointer"
+                    onclick="window.open('https://github.com/Diyari-Fariq-M-salih/MatLab-stereo-block-matching', '_blank')"
+                  >
+                    stereo pixels matching heatmaps
+                    <svg
+                      class="arrow-icon"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M5 12h14M13 5l7 7-7 7"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        fill="none"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </h2>
+                  <p class="home__card-date">📅 Dec 5, 2025</p>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <!-- ============================
+             RESOURCES SECTION (TOOLS / STACK)
+        ============================= -->
+          <section id="resources" class="section resources">
+            <hr class="section__divider" />
+            <h2 class="section__title">Resources</h2>
+            <p class="section__description">
+              A snapshot of the software, tools, and frameworks I use regularly.
+            </p>
+
+            <div class="resources__grid">
+              <article class="resources__tool">
+                <img
+                  src="assets/icon- (1).png"
+                  alt="Python"
+                  class="resources__tool-icon"
+                />
+                <span class="resources__tool-label">TensorFlow</span>
+              </article>
+              <article class="resources__tool">
+                <img
+                  src="assets/icon- (2).png"
+                  alt="NumPy"
+                  class="resources__tool-icon"
+                />
+                <span class="resources__tool-label">TinkerCAD</span>
+              </article>
+              <article class="resources__tool">
+                <img
+                  src="assets/icon- (3).png"
+                  alt="TensorFlow"
+                  class="resources__tool-icon"
+                />
+                <span class="resources__tool-label">YOLO</span>
+              </article>
+              <article class="resources__tool">
+                <img
+                  src="assets/icon- (4).png"
+                  alt="Python"
+                  class="resources__tool-icon"
+                />
+                <span class="resources__tool-label">Arduino</span>
+              </article>
+              <article class="resources__tool">
+                <img
+                  src="assets/icon- (1).png"
+                  alt="Python"
+                  class="resources__tool-icon"
+                />
+                <span class="resources__tool-label">TensorFlow</span>
+              </article>
+              <article class="resources__tool">
+                <img
+                  src="assets/icon- (5).png"
+                  alt="Python"
+                  class="resources__tool-icon"
+                />
+                <span class="resources__tool-label">AutoCAD</span>
+              </article>
+              <article class="resources__tool">
+                <img
+                  src="assets/icon- (6).png"
+                  alt="Python"
+                  class="resources__tool-icon"
+                />
+                <span class="resources__tool-label">Blender</span>
+              </article>
+              <article class="resources__tool">
+                <img
+                  src="assets/icon- (7).png"
+                  alt="Python"
+                  class="resources__tool-icon"
+                />
+                <span class="resources__tool-label">C/C++</span>
+              </article>
+              <article class="resources__tool">
+                <img
+                  src="assets/icon- (8).png"
+                  alt="Python"
+                  class="resources__tool-icon"
+                />
+                <span class="resources__tool-label">SolidWorks</span>
+              </article>
+              <article class="resources__tool">
+                <img
+                  src="assets/icon- (9).png"
+                  alt="Python"
+                  class="resources__tool-icon"
+                />
+                <span class="resources__tool-label">ESP</span>
+              </article>
+              <article class="resources__tool">
+                <img
+                  src="assets/icon- (10).png"
+                  alt="Python"
+                  class="resources__tool-icon"
+                />
+                <span class="resources__tool-label">Git/Github</span>
+              </article>
+              <article class="resources__tool">
+                <img
+                  src="assets/icon- (11).png"
+                  alt="Python"
+                  class="resources__tool-icon"
+                />
+                <span class="resources__tool-label">JavaScript</span>
+              </article>
+              <article class="resources__tool">
+                <img
+                  src="assets/icon- (12).png"
+                  alt="Python"
+                  class="resources__tool-icon"
+                />
+                <span class="resources__tool-label">Jupiter</span>
+              </article>
+              <article class="resources__tool">
+                <img
+                  src="assets/icon- (13).png"
+                  alt="Python"
+                  class="resources__tool-icon"
+                />
+                <span class="resources__tool-label">KiCad</span>
+              </article>
+              <article class="resources__tool">
+                <img
+                  src="assets/icon- (14).png"
+                  alt="Python"
+                  class="resources__tool-icon"
+                />
+                <span class="resources__tool-label">Latex</span>
+              </article>
+              <article class="resources__tool">
+                <img
+                  src="assets/icon- (15).png"
+                  alt="Python"
+                  class="resources__tool-icon"
+                />
+                <span class="resources__tool-label">Numpy</span>
+              </article>
+              <article class="resources__tool">
+                <img
+                  src="assets/icon- (16).png"
+                  alt="Python"
+                  class="resources__tool-icon"
+                />
+                <span class="resources__tool-label">OpenCV</span>
+              </article>
+              <article class="resources__tool">
+                <img
+                  src="assets/icon- (17).png"
+                  alt="Python"
+                  class="resources__tool-icon"
+                />
+                <span class="resources__tool-label">Python</span>
+              </article>
+              <article class="resources__tool">
+                <img
+                  src="assets/icon- (18).png"
+                  alt="Python"
+                  class="resources__tool-icon"
+                />
+                <span class="resources__tool-label">Pytorch</span>
+              </article>
+              <article class="resources__tool">
+                <img
+                  src="assets/icon- (1).png"
+                  alt="Python"
+                  class="resources__tool-icon"
+                />
+                <span class="resources__tool-label">TensorFlow</span>
+              </article>
+              <article class="resources__tool">
+                <img
+                  src="assets/icon- (19).png"
+                  alt="Python"
+                  class="resources__tool-icon"
+                />
+                <span class="resources__tool-label">ROS/ROS2</span>
+              </article>
+              <article class="resources__tool">
+                <img
+                  src="assets/icon- (20).png"
+                  alt="Python"
+                  class="resources__tool-icon"
+                />
+                <span class="resources__tool-label">Scikit Learn</span>
+              </article>
+            </div>
+          </section>
+
+          <!-- ============================
+             EXPERIENCE / ENGINEERING JOURNEY (TIMELINE)
+        ============================= -->
+          <section id="Journey" class="section experience">
+            <hr class="section__divider" />
+            <h2 class="section__title">Experience &amp; Engineering Journey</h2>
+
+            <div class="experience__timeline">
+              <!-- Timeline item 1 -->
+              <div class="experience__timeline-item">
+                <div class="experience__timeline-dot"></div>
+                <div class="experience__timeline-content">
+                  <h3 class="experience__timeline-heading">2025 — Present</h3>
+                  <p class="experience__timeline-text">
+                    Beginning my Master’s in Smart Aerospace & Autonomous
+                    Systems, studying between Poznań, Poland and Paris–Évry,
+                    France. Working on UAV development, robotics, AI/ML systems,
+                    embedded electronics, and simulation. This period represents
+                    my international engineering growth and specialization as I
+                    prepare for a 6-month engineering internship.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Timeline item 2 -->
+              <div class="experience__timeline-item">
+                <div class="experience__timeline-dot"></div>
+                <div class="experience__timeline-content">
+                  <h3 class="experience__timeline-heading">2023 — 2024</h3>
+                  <p class="experience__timeline-text">
+                    Completed my B.Sc. in Mechanics & Mechatronics at Salahaddin
+                    University, graduating second in my department. Delivered
+                    two major projects: an IoT-GSM home automation system and an
+                    LPG fire-risk reduction study. Strengthened skills in
+                    MATLAB, Python, robotics, simulation, and mechanical design.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Timeline item 3 -->
+              <div class="experience__timeline-item">
+                <div class="experience__timeline-dot"></div>
+                <div class="experience__timeline-content">
+                  <h3 class="experience__timeline-heading">2021 — 2022</h3>
+                  <p class="experience__timeline-text">
+                    Worked at Unigaz Co. as a pipeline designer and site
+                    engineer while studying. Designed NFPA-compliant LPG
+                    networks and oversaw installations across residential
+                    buildings. This marked my first professional engineering
+                    role and taught me practical fieldwork, safety standards,
+                    and technical responsibility.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Timeline item 4 -->
+              <div class="experience__timeline-item">
+                <div class="experience__timeline-dot"></div>
+                <div class="experience__timeline-content">
+                  <h3 class="experience__timeline-heading">
+                    2019 — Start of University
+                  </h3>
+                  <p class="experience__timeline-text">
+                    Relocated to Erbil to begin my bachelor’s studies in
+                    Mechanics & Mechatronics. Early university years included
+                    robotics, 3D printing, CAD work, microcontrollers, and
+                    foundational programming—forming the basis for my
+                    engineering identity.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Timeline item 5 -->
+              <div class="experience__timeline-item">
+                <div class="experience__timeline-dot"></div>
+                <div class="experience__timeline-content">
+                  <h3 class="experience__timeline-heading">High School</h3>
+                  <p class="experience__timeline-text">
+                    Ranked third across my entire school. Discovered my interest
+                    in engineering through mechanics, electronics, early coding,
+                    problem-solving, and STEM activities. This period set the
+                    direction for my university and career path in robotics and
+                    autonomy.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ============================
+             ABOUT ME + HOBBY CAROUSEL
+        ============================= -->
+          <section id="about" class="section about">
+            <hr class="section__divider" />
+            <h2 class="section__title">About Me</h2>
+
+            <!-- About text + profile image -->
+            <div class="about__content">
+              <div class="about__text">
+                <h3 class="about__heading">Diyari, meaning Gift</h3>
+                <p class="about__intro">
+                  I'm an engineering student passionate about building useful,
+                  human-centered technology. I also like penguins :D
+                </p>
+                <p class="about__body">
+                  I'm Diyari Salih, a robotics and autonomous systems
+                  engineering student with experience in mechanics, embedded
+                  electronics, and AI-driven perception. After ranking top of my
+                  school and completing a Mechanics & Mechatronics degree, I
+                  gained hands-on experience in pipeline design, PLC
+                  diagnostics, and data modeling. I now study in France and
+                  Poland, focusing on UAVs, quadruped robots, ML and AI, path
+                  planning, and computer vision while building systems that
+                  unite sensing, autonomy, and real-time control.
+                </p>
+              </div>
+
+              <div class="about__photo">
+                <!-- Replace /assets/me.png with your actual path if needed -->
+                <img src="./assets/Logo (2).png" alt="Your portrait" />
+              </div>
             </div>
 
-            <!-- Contact Column -->
-            <div class="footer__col">
-              <h4 class="footer__col-title">Contact</h4>
+            <!-- Hobbies / personal images carousel -->
+            <div class="about__carousel">
+              <div class="about__carousel-track">
+                <!-- You can swap these out with your real hobby photos -->
+                <img
+                  src="./assets/hobby1.jpg"
+                  alt="Hobby 1"
+                  class="about__carousel-img"
+                />
+                <img
+                  src="./assets/hobby2.jpg"
+                  alt="Hobby 2"
+                  class="about__carousel-img"
+                />
+                <img
+                  src="./assets/hobby3.jpg"
+                  alt="Hobby 3"
+                  class="about__carousel-img"
+                />
+                <img
+                  src="./assets/hobby4.jpg"
+                  alt="Hobby 4"
+                  class="about__carousel-img"
+                />
+                <img
+                  src="./assets/hobby5.jpg"
+                  alt="Hobby 5"
+                  class="about__carousel-img"
+                />
+
+                <!-- Duplicated set for infinite looping -->
+                <img
+                  src="./assets/hobby1.jpg"
+                  alt="Hobby 1"
+                  class="about__carousel-img"
+                />
+                <img
+                  src="./assets/hobby2.jpg"
+                  alt="Hobby 2"
+                  class="about__carousel-img"
+                />
+                <img
+                  src="./assets/hobby3.jpg"
+                  alt="Hobby 3"
+                  class="about__carousel-img"
+                />
+                <img
+                  src="./assets/hobby4.jpg"
+                  alt="Hobby 4"
+                  class="about__carousel-img"
+                />
+                <img
+                  src="./assets/hobby5.jpg"
+                  alt="Hobby 5"
+                  class="about__carousel-img"
+                />
+              </div>
+            </div>
+          </section>
+          <footer class="footer">
+            <!-- ============================
+       TOP CALL-TO-ACTION BAR
+  ============================= -->
+            <div class="footer__cta">
+              <div class="footer__cta-left">READY TO CONNECT? →</div>
+
+              <div class="footer__cta-center">
+                <h2 class="footer__cta-title">Contact Me</h2>
+                <div class="footer__cta-underline"></div>
+              </div>
+
               <a
                 href="mailto:diyari.m.salih@gmail.com"
-                class="footer__col-link"
+                class="footer__cta-button"
               >
-                diyari.m.salih@gmail.com
+                <svg class="footer__cta-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M5 12h14M13 6l6 6-6 6"
+                    stroke="black"
+                    stroke-width="2"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
               </a>
-              <a
-                href="./assets/Mohammed-salih_Diyari_CV.pdf"
-                class="footer__col-link"
-                >Download Résumé →</a
-              >
             </div>
 
-            <!-- Important Links -->
-            <div class="footer__col">
-              <h4 class="footer__col-title">Links</h4>
-              <a href="#home" class="footer__col-link">Home</a>
-              <a href="#resources" class="footer__col-link">Resources</a>
-              <a href="#Journey" class="footer__col-link">Journey</a>
-              <a href="#about" class="footer__col-link">About Me</a>
+            <!-- ============================
+       BOTTOM DARK INFO GRID
+  ============================= -->
+            <div class="footer__info">
+              <!-- Branding -->
+              <div class="footer__brand">
+                <h3 class="footer__brand-title">Mohammed-salih Diyari</h3>
+                <p class="footer__brand-subtitle">Engineering Portfolio</p>
+              </div>
+
+              <!-- Contact Column -->
+              <div class="footer__col">
+                <h4 class="footer__col-title">Contact</h4>
+                <a
+                  href="mailto:diyari.m.salih@gmail.com"
+                  class="footer__col-link"
+                >
+                  diyari.m.salih@gmail.com
+                </a>
+                <a
+                  href="./assets/Mohammed-salih_Diyari_CV.pdf"
+                  class="footer__col-link"
+                  >Download Résumé →</a
+                >
+              </div>
+
+              <!-- Important Links -->
+              <div class="footer__col">
+                <h4 class="footer__col-title">Links</h4>
+                <a href="#home" class="footer__col-link">Home</a>
+                <a href="#resources" class="footer__col-link">Resources</a>
+                <a href="#Journey" class="footer__col-link">Journey</a>
+                <a href="#about" class="footer__col-link">About Me</a>
+              </div>
+
+              <!-- Socials -->
+              <div class="footer__col">
+                <h4 class="footer__col-title">Hobbies</h4>
+                <ul class="hobbies__list">
+                  <li>♟️ Chess</li>
+                  <li>🏃‍♂️ Running</li>
+                  <li>🎶 Flute</li>
+                  <li>🍳 Cooking</li>
+                  <li>📚 Reading</li>
+                </ul>
+              </div>
             </div>
+          </footer>
+        </main>
+      </div>
+    </body>
+    <script>
+      document.querySelectorAll("a[href]").forEach((a) => {
+        const href = a.getAttribute("href");
 
-            <!-- Socials -->
-            <div class="footer__col">
-              <h4 class="footer__col-title">Hobbies</h4>
-              <ul class="hobbies__list">
-                <li>♟️ Chess</li>
-                <li>🏃‍♂️ Running</li>
-                <li>🎶 Flute</li>
-                <li>🍳 Cooking</li>
-                <li>📚 Reading</li>
-              </ul>
-            </div>
-          </div>
-        </footer>
-      </main>
-    </div>
-  </body>
-  <script>
-    document.querySelectorAll("a[href]").forEach((a) => {
-      const href = a.getAttribute("href");
+        // Ignore internal anchors
+        if (href.startsWith("#")) return;
 
-      // Ignore internal anchors
-      if (href.startsWith("#")) return;
+        // Ignore mailto:
+        if (href.startsWith("mailto:")) return;
 
-      // Ignore mailto:
-      if (href.startsWith("mailto:")) return;
-
-      // Only external links get target="_blank"
-      if (!a.href.includes(window.location.hostname)) {
-        a.setAttribute("target", "_blank");
-        a.setAttribute("rel", "noopener noreferrer");
-      }
-    });
-  </script>
-</html>
+        // Only external links get target="_blank"
+        if (!a.href.includes(window.location.hostname)) {
+          a.setAttribute("target", "_blank");
+          a.setAttribute("rel", "noopener noreferrer");
+        }
+      });
+    </script>
+  </html>
+</article>

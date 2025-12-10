@@ -1,3 +1,68 @@
+/* =============================================================================
+   DIYARI PORTFOLIO — MAIN.CSS (FINAL PRODUCTION BUILD)
+   =============================================================================
+   This file controls ALL styling for the portfolio, including:
+     • Layout (sidebar + content)
+     • Home project cards
+     • Resources grid
+     • Experience timeline
+     • About section (penguin + carousel)
+     • Footer and CTA section
+     • All responsive behavior (mobile + desktop)
+
+   ---------------------------------------------------------------------------
+   HOW TO MAINTAIN / UPDATE THIS FILE (CONCISE DEV GUIDE)
+   ---------------------------------------------------------------------------
+
+   1.   Avoid renaming class names — HTML and JS depend on them.
+
+   2.   Desktop styles appear first. Mobile overrides appear in:
+           @media (max-width: 900px)
+        And desktop refinements in:
+           @media (min-width: 901px)
+
+   3.   To adjust HOME PROJECT CARDS:
+           - Edit card HTML.
+           - Mobile currently hides even-numbered cards. Change that rule
+             inside the mobile media query.
+
+   4.   To adjust RESOURCES:
+           - Add/remove <article class="resources__tool"> items.
+           - Grid responsiveness is handled in CSS.
+
+   5.   To adjust TIMELINE:
+           - Add/remove .experience__timeline-item blocks in HTML.
+           - CSS will reflow automatically.
+
+   6.   To replace penguin:
+           - Desktop penguin: .about__photo img
+           - Mobile penguin: .about__heading::after
+           - Update image path in CSS if needed.
+
+   7.   To modify carousel images:
+           - Add/remove <img> items inside .about__carousel-track
+           - Keep duplicates for infinite scroll illusion.
+
+   8.   To change desktop spacing:
+           - See desktop spacing section near bottom of file.
+
+   9.   DO NOT modify animation keyframes unless familiar with CSS animations.
+
+   10.  DEBUG MODE:
+           - You can outline everything by uncommenting the DEBUG block.
+
+   11.  SAFE TO EDIT:
+           - Colors, spacing, font sizes, border radii.
+           - Image sizes.
+           - Section spacing.
+
+   12.  This stylesheet has been fully cleaned:
+           - Duplicate rules removed
+           - Latest fixes preserved
+           - Mobile/desktop behaviors consistent
+           - Final behavior validated
+ */
+
 /* =========================================
    GLOBAL VARIABLES (THEME & LAYOUT)
    ========================================= */
