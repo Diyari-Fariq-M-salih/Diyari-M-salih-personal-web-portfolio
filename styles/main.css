@@ -761,9 +761,9 @@ html * {
    MOBILE/TABLET — CLEAN, FIXED, FINAL RESPONSIVE PACK
    ============================================================ */
 
-/* -----------------------------
-   GLOBAL: Prevent overflow + zoom issues
------------------------------ */
+/* ------------------------------------------------------------
+   GLOBAL FIXES (always active)
+------------------------------------------------------------ */
 html,
 body {
   max-width: 100% !important;
@@ -776,16 +776,26 @@ img {
   display: block;
 }
 
-/* -----------------------------
-   HIDE SIDEBAR COMPLETELY (mobile/tablet)
------------------------------ */
+/* ============================================================
+   MOBILE/TABLET RULES — max-width: 900px
+   ============================================================ */
 @media (max-width: 900px) {
+  /* ----------------------------------------------------------
+     LAYOUT — Remove sidebar + fix layout
+  ---------------------------------------------------------- */
   .layout__sidebar {
     display: none !important;
     width: 0 !important;
     height: 0 !important;
     visibility: hidden !important;
     opacity: 0 !important;
+  }
+
+  .layout {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
   }
 
   .layout__content {
@@ -795,18 +805,9 @@ img {
     overflow-x: hidden !important;
   }
 
-  .layout {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    overflow-x: hidden !important;
-  }
-}
-
-/* ============================================================
-   HOME — Restore proper card grid
-   ============================================================ */
-@media (max-width: 900px) {
+  /* ----------------------------------------------------------
+     HOME — 2-column grid
+  ---------------------------------------------------------- */
   .home__cards {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
@@ -814,33 +815,53 @@ img {
     column-count: initial !important;
     margin-top: 1.5rem !important;
   }
-}
 
-@media (max-width: 430px) {
-  .home__cards {
-    grid-template-columns: 1fr !important;
+  /* Show only odd cards (your current choice) */
+  .home__card:nth-child(even) {
+    display: none !important;
   }
-}
 
-/* ============================================================
-   RESOURCES — 3 columns on mobile/tablet
-   ============================================================ */
-@media (max-width: 900px) {
+  /* Quote spacing fix */
+  .home-quote {
+    margin-bottom: 0.8rem !important;
+    padding-bottom: 0 !important;
+    text-align: center;
+  }
+
+  #home.section {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  /* ----------------------------------------------------------
+     RESOURCES — Balanced grid, consistent sizing
+  ---------------------------------------------------------- */
   .resources__grid {
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 1rem !important;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)) !important;
+    gap: 0.9rem !important;
     padding: 1rem !important;
+  }
+
+  .resources__tool {
+    min-height: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+  }
+
+  .resources__tool-icon {
+    width: 28px !important;
+    height: 28px !important;
   }
 
   .resources__tool-label {
     font-size: 0.9rem !important;
   }
-}
 
-/* ============================================================
-   EXPERIENCE — restore spacing, fix tightness
-   ============================================================ */
-@media (max-width: 900px) {
+  /* ----------------------------------------------------------
+     EXPERIENCE — Fix text spacing & layout
+  ---------------------------------------------------------- */
   .experience__timeline {
     padding: 1.5rem !important;
   }
@@ -849,32 +870,77 @@ img {
     font-size: 1rem !important;
     line-height: 1.55 !important;
   }
-}
 
-/* ============================================================
-   ABOUT — restore natural mobile layout (penguin below text)
-   ============================================================ */
-@media (max-width: 900px) {
+  /* Section spacing cleanup */
+  .section__divider {
+    margin-top: 1rem !important;
+    margin-bottom: 0.8rem !important;
+  }
+
+  .section {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .section__title {
+    margin-top: 0.2rem !important;
+    margin-bottom: 0.8rem !important;
+  }
+
+  /* ----------------------------------------------------------
+     ABOUT — Penguin next to title + hide large one
+  ---------------------------------------------------------- */
+  .about__heading {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+  }
+
+  .about__heading::after {
+    content: "";
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    background-image: url("./assets/Logo (2).png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: scaleX(-1);
+  }
+
   .about__content {
     flex-direction: column !important;
     gap: 2rem !important;
   }
 
   .about__photo {
-    display: flex !important;
-    justify-content: center !important;
+    display: none !important;
   }
 
-  .about__photo img {
-    max-width: 220px !important;
+  /* Carousel fixes */
+  .about__carousel {
+    margin-top: 2.2rem !important;
   }
-}
 
-/* ============================================================
-   FOOTER — perfect centered 2×2 layout + full-width background
-   ============================================================ */
-@media (max-width: 900px) {
-  /* Full-width black area */
+  .about__carousel-img {
+    width: 140px !important;
+    height: 100px !important;
+    object-fit: cover !important;
+  }
+
+  /* ----------------------------------------------------------
+     CTA (“Contact Me”) — ensure spacing before footer
+  ---------------------------------------------------------- */
+  .footer__cta {
+    margin-top: 2rem !important;
+  }
+
+  .about {
+    margin-bottom: 2rem !important;
+  }
+
+  /* ----------------------------------------------------------
+     FOOTER — Perfect centered 2×2 grid + full width background
+  ---------------------------------------------------------- */
   .footer {
     width: 100% !important;
     max-width: none !important;
@@ -902,7 +968,6 @@ img {
   }
 
   .footer__col:nth-child(3) {
-    /* Links */
     grid-column: 2 !important;
     grid-row: 1 !important;
     max-width: 220px;
@@ -910,147 +975,24 @@ img {
 
   /* Row 2 */
   .footer__col:nth-child(2) {
-    /* Contact */
     grid-column: 1 !important;
     grid-row: 2 !important;
     max-width: 220px;
   }
 
   .footer__col:nth-child(4) {
-    /* Hobbies */
     grid-column: 2 !important;
     grid-row: 2 !important;
     max-width: 220px;
   }
 }
-/* ============================================================
-   1️⃣ RESOURCES — FIX UNBALANCED GRID
-   ============================================================ */
-
-@media (max-width: 900px) {
-  .resources__grid {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)) !important;
-    gap: 0.9rem !important;
-    padding: 1rem !important;
-  }
-
-  .resources__tool {
-    min-height: 50px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-  }
-
-  .resources__tool-icon {
-    width: 28px !important;
-    height: 28px !important;
-  }
-}
 
 /* ============================================================
-   2️⃣ ABOUT — Add penguin next to your name/title
-   ============================================================ */
-
-@media (max-width: 900px) {
-  /* Container adjustment */
-  .about__heading {
-    display: flex !important;
-    align-items: center !important;
-    gap: 0.5rem !important;
-  }
-
-  /* Replace big penguin with title penguin */
-  .about__heading::after {
-    content: "";
-    display: inline-block;
-    width: 34px;
-    height: 34px;
-    background-image: url("./assets/Logo (2).png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    transform: scaleX(-1); /* match your current image flip */
-  }
-
-  /* Hide the original large penguin under the text */
-  .about__photo {
-    display: none !important;
-  }
-}
-
-/* ============================================================
-   3️⃣ HOBBY CAROUSEL — spacing + fixed size consistency
-   ============================================================ */
-
-@media (max-width: 900px) {
-  /* Add space above carousel */
-  .about__carousel {
-    margin-top: 2.2rem !important;
-  }
-
-  /* Prevent too-small images */
-  .about__carousel-img {
-    width: 140px !important;
-    height: 100px !important;
-    object-fit: cover !important;
-  }
-}
-
-/* ============================================================
-   4️⃣ Ensure CTA (“Contact Me”) does NOT touch Hobbies
-   ============================================================ */
-
-@media (max-width: 900px) {
-  .footer__cta {
-    margin-top: 2rem !important; /* push CTA upward or create space below */
-  }
-
-  .about {
-    margin-bottom: 2rem !important; /* spacing before CTA */
-  }
-}
-@media (max-width: 900px) {
-  .home-quote {
-    margin-bottom: 0.8rem !important;
-    padding-bottom: 0 !important;
-    text-align: center;
-  }
-
-  /* Also ensure the first section doesn't have extra top spacing */
-  #home.section {
-    padding-top: 0 !important;
-    margin-top: 0 !important;
-  }
-}
-/* @media (max-width: 768px) {
-  .home__card:nth-child(n + 4) {
-    display: none !important;
-  }
-} */
-@media (max-width: 768px) {
-  .home__card:nth-child(even) {
-    display: none !important;
-  }
-}
-/* @media (max-width: 768px) {
-  .home__card:nth-child(odd) {
-    display: none !important;
-  }
-} */
-@media (max-width: 900px) {
-  .section__divider {
-    margin-top: 1rem !important;
-    margin-bottom: 0.8rem !important;
-  }
-}
-@media (max-width: 900px) {
-  .section {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-  }
-
-  .section__title {
-    margin-top: 0.2rem !important;
-    margin-bottom: 0.8rem !important;
+   EXTRA SMALL SCREENS — max-width: 430px
+   (Home grid becomes 1 column)
+============================================================ */
+@media (max-width: 430px) {
+  .home__cards {
+    grid-template-columns: 1fr !important;
   }
 }
