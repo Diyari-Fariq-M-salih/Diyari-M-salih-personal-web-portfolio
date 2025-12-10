@@ -996,3 +996,70 @@ img {
     grid-template-columns: 1fr !important;
   }
 }
+/* ============================================================
+   DESKTOP CAROUSEL FIX — Prevent clipping & restore uniform grid
+   ============================================================ */
+@media (min-width: 901px) {
+  /* Increase height so images are never cut off */
+  .about__carousel {
+    height: 160px !important;
+    padding-top: 1.5rem !important; /* prevents overlap with text */
+    overflow: hidden;
+  }
+
+  /* Ensure all carousel images are exactly the same size */
+  .about__carousel-img {
+    width: 180px !important;
+    height: 120px !important;
+    object-fit: cover !important;
+    border-radius: 0.8rem;
+  }
+
+  /* Track spacing */
+  .about__carousel-track {
+    gap: 2.5rem !important;
+  }
+}
+/* ============================================================
+   DESKTOP SECTION SPACING FIX — Remove large white gaps
+   ============================================================ */
+@media (min-width: 901px) {
+  /* Reduce spacing above and below horizontal section dividers */
+  .section__divider {
+    margin-top: 1rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* Tighten overall section spacing */
+  .section {
+    padding-top: 4rem !important;
+    margin-top: 0 !important;
+  }
+
+  .section__title {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+}
+/* ============================================================
+   DESKTOP ABOUT SECTION SPACING FIX — Remove huge white gap
+   ============================================================ */
+@media (min-width: 901px) {
+  /* Reduce penguin size so it doesn't create vertical overflow */
+  .about__photo img {
+    max-width: 260px !important;
+    height: auto !important;
+  }
+
+  /* Tighten spacing under the text container */
+  .about__content {
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* Pull carousel upward slightly for a clean transition */
+  .about__carousel {
+    margin-top: 1rem !important;
+    padding-top: 2rem !important;
+    height: 160px !important; /* keeps it neat but visible */
+  }
+}
