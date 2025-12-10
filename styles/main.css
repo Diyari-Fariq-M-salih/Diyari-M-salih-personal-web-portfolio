@@ -758,13 +758,55 @@ html * {
   outline: 1px solid red !important;
 } */
 /* ============================================================
-   FINAL RESPONSIVE POLISH — MOBILE/TABLET FIXES
+   MOBILE/TABLET — CLEAN, FIXED, FINAL RESPONSIVE PACK
    ============================================================ */
 
 /* -----------------------------
-   1️⃣ HOME CARDS — FORCE 2 COLUMNS
+   GLOBAL: Prevent overflow + zoom issues
 ----------------------------- */
-@media (max-width: 768px) {
+html,
+body {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
+/* -----------------------------
+   HIDE SIDEBAR COMPLETELY (mobile/tablet)
+----------------------------- */
+@media (max-width: 900px) {
+  .layout__sidebar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+
+  .layout__content {
+    margin-left: 0 !important;
+    padding: 1rem 1.2rem !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  .layout {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+}
+
+/* ============================================================
+   HOME — Restore proper card grid
+   ============================================================ */
+@media (max-width: 900px) {
   .home__cards {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
@@ -774,24 +816,53 @@ html * {
   }
 }
 
-/* -----------------------------
-   2️⃣ ABOUT — Move penguin to the RIGHT of the text
------------------------------ */
-@media (max-width: 768px) {
-  .about__content {
-    flex-direction: row !important; /* keep side-by-side */
-    align-items: center !important;
-    gap: 1.5rem !important;
+@media (max-width: 430px) {
+  .home__cards {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ============================================================
+   RESOURCES — 3 columns on mobile/tablet
+   ============================================================ */
+@media (max-width: 900px) {
+  .resources__grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1rem !important;
+    padding: 1rem !important;
   }
 
-  .about__text {
-    flex: 1.6 !important;
+  .resources__tool-label {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* ============================================================
+   EXPERIENCE — restore spacing, fix tightness
+   ============================================================ */
+@media (max-width: 900px) {
+  .experience__timeline {
+    padding: 1.5rem !important;
+  }
+
+  .experience__timeline-text {
+    font-size: 1rem !important;
+    line-height: 1.55 !important;
+  }
+}
+
+/* ============================================================
+   ABOUT — restore natural mobile layout (penguin below text)
+   ============================================================ */
+@media (max-width: 900px) {
+  .about__content {
+    flex-direction: column !important;
+    gap: 2rem !important;
   }
 
   .about__photo {
-    flex: 1 !important;
-    display: flex;
-    justify-content: center;
+    display: flex !important;
+    justify-content: center !important;
   }
 
   .about__photo img {
@@ -799,100 +870,155 @@ html * {
   }
 }
 
-/* -----------------------------
-   3️⃣ UNIVERSAL SECTION PADDING
------------------------------ */
-@media (max-width: 768px) {
-  section,
-  .layout__content,
-  .resources,
-  .experience,
-  .about,
-  .footer__info,
-  .footer__cta {
-    padding-left: 1.2rem !important;
-    padding-right: 1.2rem !important;
-  }
-}
-
 /* ============================================================
-   CENTER THE FOOTER GRID (2×2) ON MOBILE/TABLET
+   FOOTER — perfect centered 2×2 layout + full-width background
    ============================================================ */
+@media (max-width: 900px) {
+  /* Full-width black area */
+  .footer {
+    width: 100% !important;
+    max-width: none !important;
+  }
 
-@media (max-width: 768px) {
   .footer__info {
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 1.5rem 1.2rem !important;
+
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
     grid-template-rows: auto auto !important;
     gap: 1.5rem !important;
 
-    /* ⭐ Center the entire grid */
     justify-content: center !important;
     align-items: start !important;
-
-    /* ⭐ Make the grid itself centered as a block */
-    max-width: 500px;
-    margin-left: auto !important;
-    margin-right: auto !important;
   }
 
-  /* Row + Column positions stay the same */
+  /* Row 1 */
   .footer__brand {
     grid-column: 1 !important;
     grid-row: 1 !important;
+    max-width: 220px;
   }
 
   .footer__col:nth-child(3) {
     /* Links */
     grid-column: 2 !important;
     grid-row: 1 !important;
+    max-width: 220px;
   }
 
+  /* Row 2 */
   .footer__col:nth-child(2) {
     /* Contact */
     grid-column: 1 !important;
     grid-row: 2 !important;
+    max-width: 220px;
   }
 
   .footer__col:nth-child(4) {
     /* Hobbies */
     grid-column: 2 !important;
     grid-row: 2 !important;
-  }
-
-  /* ⭐ Ensure each cell has consistent width (makes centering perfect) */
-  .footer__col,
-  .footer__brand {
-    width: 100% !important;
     max-width: 220px;
   }
 }
-/* Make footer background full-width on mobile/tablet */
-@media (max-width: 768px) {
-  .footer {
-    max-width: 100% !important;
-    width: 100% !important;
+/* ============================================================
+   1️⃣ RESOURCES — FIX UNBALANCED GRID
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .resources__grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)) !important;
+    gap: 0.9rem !important;
+    padding: 1rem !important;
   }
 
-  /* Also ensure the dark info block spans full width */
-  .footer__info {
-    width: 100% !important;
-    max-width: none !important; /* removes the centered-box limitation */
-    margin: 0 !important;
-    padding-left: 1.5rem !important;
-    padding-right: 1.5rem !important;
+  .resources__tool {
+    min-height: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+  }
+
+  .resources__tool-icon {
+    width: 28px !important;
+    height: 28px !important;
   }
 }
+
 /* ============================================================
-   REMOVE LEFT SIDEBAR ON MOBILE/TABLET
+   2️⃣ ABOUT — Add penguin next to your name/title
    ============================================================ */
+
 @media (max-width: 900px) {
-  /* Hide sidebar entirely */
-  .layout__sidebar {
+  /* Container adjustment */
+  .about__heading {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+  }
+
+  /* Replace big penguin with title penguin */
+  .about__heading::after {
+    content: "";
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    background-image: url("./assets/Logo (2).png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: scaleX(-1); /* match your current image flip */
+  }
+
+  /* Hide the original large penguin under the text */
+  .about__photo {
     display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
+  }
+}
+
+/* ============================================================
+   3️⃣ HOBBY CAROUSEL — spacing + fixed size consistency
+   ============================================================ */
+
+@media (max-width: 900px) {
+  /* Add space above carousel */
+  .about__carousel {
+    margin-top: 2.2rem !important;
+  }
+
+  /* Prevent too-small images */
+  .about__carousel-img {
+    width: 140px !important;
+    height: 100px !important;
+    object-fit: cover !important;
+  }
+}
+
+/* ============================================================
+   4️⃣ Ensure CTA (“Contact Me”) does NOT touch Hobbies
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .footer__cta {
+    margin-top: 2rem !important; /* push CTA upward or create space below */
+  }
+
+  .about {
+    margin-bottom: 2rem !important; /* spacing before CTA */
+  }
+}
+@media (max-width: 900px) {
+  .home-quote {
+    margin-bottom: 0.8rem !important;
+    padding-bottom: 0 !important;
+    text-align: center;
+  }
+
+  /* Also ensure the first section doesn't have extra top spacing */
+  #home.section {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
   }
 }
