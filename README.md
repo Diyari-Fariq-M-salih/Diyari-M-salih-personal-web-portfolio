@@ -104,13 +104,3 @@ Handcrafted with ❤️ by Diyari.
 ## 📄 License
 
 This project is licensed for personal and academic use.
-
----
-
-## 📬 Contact
-
-If you’d like to connect:
-
-- **GitHub:** https://github.com/yourusername
-- **LinkedIn:** https://linkedin.com/in/yourusername
-- **Email:** youremail@example.com
