@@ -712,6 +712,34 @@ body {
   transform: scale(1.15);
   opacity: 1;
 }
+.hobbies {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.hobbies__title {
+  color: white;
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+}
+
+.hobbies__icons {
+  display: flex;
+  justify-content: center;
+  gap: 0.9rem;
+  font-size: 1.6rem;
+}
+
+.hobbies__icons span {
+  opacity: 0.8;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  cursor: default;
+}
+
+.hobbies__icons span:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
 
 /* If icons look too light/dark, uncomment this:
    (Good for white icons on dark sidebar)
