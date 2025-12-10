@@ -758,183 +758,141 @@ html * {
   outline: 1px solid red !important;
 } */
 /* ============================================================
-   📱 ADVANCED RESPONSIVE REDESIGN (Mobile + Tablet Optimized)
-   Non-destructive: HTML structure stays the same
+   FINAL RESPONSIVE POLISH — MOBILE/TABLET FIXES
    ============================================================ */
 
-/* ------------------------------------------------------------
-   TABLETS (≤ 1024px) — Switch cards to GRID instead of masonry
------------------------------------------------------------- */
-@media (max-width: 1024px) {
-  /* Projects become 2 columns */
+/* -----------------------------
+   1️⃣ HOME CARDS — FORCE 2 COLUMNS
+----------------------------- */
+@media (max-width: 768px) {
   .home__cards {
-    column-count: initial !important; /* disables masonry */
     display: grid !important;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-
-  /* Ensure cards behave as full grid items */
-  .home__card {
-    width: 100%;
-    break-inside: auto !important;
-  }
-
-  /* Resources grid becomes exactly 3 columns */
-  .resources__grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  /* Timeline spacing tighter */
-  .experience__timeline {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-
-  .experience__timeline-item {
-    margin-bottom: 2rem;
-  }
-
-  .about__content {
-    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.2rem !important;
+    column-count: initial !important;
+    margin-top: 1.5rem !important;
   }
 }
 
-/* ------------------------------------------------------------
-   LARGE PHONES / SMALL TABLETS (≤ 768px)
------------------------------------------------------------- */
+/* -----------------------------
+   2️⃣ ABOUT — Move penguin to the RIGHT of the text
+----------------------------- */
 @media (max-width: 768px) {
-  /* Sidebar becomes top bar (already partly done) */
-  .layout__sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
-    border-right: none;
-    padding: 1.5rem;
-  }
-
-  .layout__content {
-    margin-left: 0 !important;
-  }
-
-  /* PROJECTS → clean 2-column grid */
-  .home__cards {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-    margin-top: 1rem !important;
-  }
-
-  .home__card {
-    margin: 0;
-  }
-
-  /* RESOURCES → still 3 columns if possible */
-  .resources__grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-    padding: 1rem;
-  }
-
-  .resources__tool {
-    padding: 0.6rem;
-  }
-
-  /* EXPERIENCE → narrow layout */
-  .experience__timeline {
-    padding: 1.5rem;
-  }
-
-  .experience__timeline-heading {
-    font-size: 1.1rem;
-  }
-
   .about__content {
-    flex-direction: column;
-    text-align: left;
+    flex-direction: row !important; /* keep side-by-side */
+    align-items: center !important;
+    gap: 1.5rem !important;
+  }
+
+  .about__text {
+    flex: 1.6 !important;
+  }
+
+  .about__photo {
+    flex: 1 !important;
+    display: flex;
+    justify-content: center;
   }
 
   .about__photo img {
-    max-width: 240px;
+    max-width: 220px !important;
   }
 }
 
-/* ------------------------------------------------------------
-   NORMAL PHONES (≤ 600px)
-   Projects MUST be 2 columns × 3 rows (your request)
------------------------------------------------------------- */
-@media (max-width: 600px) {
-  /* FORCE 2-column grid for the 6 project cards */
-  .home__cards {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 1rem !important;
-  }
-
-  .home__card-title {
-    font-size: 1.1rem;
-  }
-
-  /* RESOURCES → still 3 columns but tighter */
-  .resources__grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.8rem;
-    padding: 0.8rem;
-  }
-
-  /* EXPERIENCE TIMELINE */
-  .experience__timeline {
-    padding: 1rem;
-  }
-
-  .experience__timeline-text {
-    font-size: 0.95rem;
-  }
-
-  /* ABOUT HOBBY CAROUSEL smaller */
-  .about__carousel-img {
-    width: 120px;
-    height: 85px;
+/* -----------------------------
+   3️⃣ UNIVERSAL SECTION PADDING
+----------------------------- */
+@media (max-width: 768px) {
+  section,
+  .layout__content,
+  .resources,
+  .experience,
+  .about,
+  .footer__info,
+  .footer__cta {
+    padding-left: 1.2rem !important;
+    padding-right: 1.2rem !important;
   }
 }
 
-/* ------------------------------------------------------------
-   SMALL PHONES (≤ 420px)
------------------------------------------------------------- */
-@media (max-width: 420px) {
-  /* PROJECTS → still 2 columns but smaller cards */
-  .home__cards {
-    grid-template-columns: repeat(2, 1fr);
+/* ============================================================
+   CENTER THE FOOTER GRID (2×2) ON MOBILE/TABLET
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .footer__info {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: auto auto !important;
+    gap: 1.5rem !important;
+
+    /* ⭐ Center the entire grid */
+    justify-content: center !important;
+    align-items: start !important;
+
+    /* ⭐ Make the grid itself centered as a block */
+    max-width: 500px;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
-  .home__card-title {
-    font-size: 1rem;
+  /* Row + Column positions stay the same */
+  .footer__brand {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
   }
 
-  /* RESOURCES → drop to 2 columns for readability */
-  .resources__grid {
-    grid-template-columns: repeat(2, 1fr);
+  .footer__col:nth-child(3) {
+    /* Links */
+    grid-column: 2 !important;
+    grid-row: 1 !important;
   }
 
-  /* ABOUT text scaling */
-  .about__heading {
-    font-size: 2rem;
+  .footer__col:nth-child(2) {
+    /* Contact */
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+  }
+
+  .footer__col:nth-child(4) {
+    /* Hobbies */
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+  }
+
+  /* ⭐ Ensure each cell has consistent width (makes centering perfect) */
+  .footer__col,
+  .footer__brand {
+    width: 100% !important;
+    max-width: 220px;
   }
 }
-
-/* ------------------------------------------------------------
-   ULTRA SMALL PHONES (≤ 360px)
------------------------------------------------------------- */
-@media (max-width: 360px) {
-  .home__cards {
-    grid-template-columns: repeat(1, 1fr) !important;
+/* Make footer background full-width on mobile/tablet */
+@media (max-width: 768px) {
+  .footer {
+    max-width: 100% !important;
+    width: 100% !important;
   }
 
-  .resources__grid {
-    grid-template-columns: repeat(2, 1fr);
+  /* Also ensure the dark info block spans full width */
+  .footer__info {
+    width: 100% !important;
+    max-width: none !important; /* removes the centered-box limitation */
+    margin: 0 !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
   }
-
-  .about__carousel-img {
-    width: 100px;
-    height: 70px;
+}
+/* ============================================================
+   REMOVE LEFT SIDEBAR ON MOBILE/TABLET
+   ============================================================ */
+@media (max-width: 900px) {
+  /* Hide sidebar entirely */
+  .layout__sidebar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
   }
 }
