@@ -694,6 +694,33 @@ body {
   cursor: pointer !important;
 }
 
+.layout__socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.layout__social-link img {
+  width: 28px;
+  height: 28px;
+  opacity: 0.85;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.layout__social-link img:hover {
+  transform: scale(1.15);
+  opacity: 1;
+}
+
+/* If icons look too light/dark, uncomment this:
+   (Good for white icons on dark sidebar)
+   
+.layout__social-link img {
+  filter: brightness(0) invert(1);
+}
+*/
+
 /* =========================================
    DEBUG STYLES - TO BE REMOVED IN PRODUCTION
    ========================================= */
