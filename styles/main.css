@@ -757,3 +757,184 @@ body {
 html * {
   outline: 1px solid red !important;
 } */
+/* ============================================================
+   📱 ADVANCED RESPONSIVE REDESIGN (Mobile + Tablet Optimized)
+   Non-destructive: HTML structure stays the same
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   TABLETS (≤ 1024px) — Switch cards to GRID instead of masonry
+------------------------------------------------------------ */
+@media (max-width: 1024px) {
+  /* Projects become 2 columns */
+  .home__cards {
+    column-count: initial !important; /* disables masonry */
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* Ensure cards behave as full grid items */
+  .home__card {
+    width: 100%;
+    break-inside: auto !important;
+  }
+
+  /* Resources grid becomes exactly 3 columns */
+  .resources__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* Timeline spacing tighter */
+  .experience__timeline {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .experience__timeline-item {
+    margin-bottom: 2rem;
+  }
+
+  .about__content {
+    gap: 2rem;
+  }
+}
+
+/* ------------------------------------------------------------
+   LARGE PHONES / SMALL TABLETS (≤ 768px)
+------------------------------------------------------------ */
+@media (max-width: 768px) {
+  /* Sidebar becomes top bar (already partly done) */
+  .layout__sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    padding: 1.5rem;
+  }
+
+  .layout__content {
+    margin-left: 0 !important;
+  }
+
+  /* PROJECTS → clean 2-column grid */
+  .home__cards {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-top: 1rem !important;
+  }
+
+  .home__card {
+    margin: 0;
+  }
+
+  /* RESOURCES → still 3 columns if possible */
+  .resources__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .resources__tool {
+    padding: 0.6rem;
+  }
+
+  /* EXPERIENCE → narrow layout */
+  .experience__timeline {
+    padding: 1.5rem;
+  }
+
+  .experience__timeline-heading {
+    font-size: 1.1rem;
+  }
+
+  .about__content {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .about__photo img {
+    max-width: 240px;
+  }
+}
+
+/* ------------------------------------------------------------
+   NORMAL PHONES (≤ 600px)
+   Projects MUST be 2 columns × 3 rows (your request)
+------------------------------------------------------------ */
+@media (max-width: 600px) {
+  /* FORCE 2-column grid for the 6 project cards */
+  .home__cards {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+
+  .home__card-title {
+    font-size: 1.1rem;
+  }
+
+  /* RESOURCES → still 3 columns but tighter */
+  .resources__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+    padding: 0.8rem;
+  }
+
+  /* EXPERIENCE TIMELINE */
+  .experience__timeline {
+    padding: 1rem;
+  }
+
+  .experience__timeline-text {
+    font-size: 0.95rem;
+  }
+
+  /* ABOUT HOBBY CAROUSEL smaller */
+  .about__carousel-img {
+    width: 120px;
+    height: 85px;
+  }
+}
+
+/* ------------------------------------------------------------
+   SMALL PHONES (≤ 420px)
+------------------------------------------------------------ */
+@media (max-width: 420px) {
+  /* PROJECTS → still 2 columns but smaller cards */
+  .home__cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .home__card-title {
+    font-size: 1rem;
+  }
+
+  /* RESOURCES → drop to 2 columns for readability */
+  .resources__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* ABOUT text scaling */
+  .about__heading {
+    font-size: 2rem;
+  }
+}
+
+/* ------------------------------------------------------------
+   ULTRA SMALL PHONES (≤ 360px)
+------------------------------------------------------------ */
+@media (max-width: 360px) {
+  .home__cards {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+
+  .resources__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about__carousel-img {
+    width: 100px;
+    height: 70px;
+  }
+}
